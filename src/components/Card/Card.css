@@ -1,0 +1,38 @@
+h1 {
+  font-family: 'Anton', sans-serif;
+}
+
+h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  margin: 0;
+}
+
+h3, p {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+.Card {
+  position: relative;
+  margin: 0 auto 20px auto;
+  width: 300px;
+  box-sizing: border-box;
+  background-color: grey;
+  background-color: #f1f1f1;
+  border: 2px ridge #b5b5b5;
+}
+
+.information {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 7px;
+}
+
+.poster {
+  width: 297px; 
+}

@@ -1,0 +1,37 @@
+h1 {
+  font-family: 'Anton', sans-serif;
+  padding-left: 10px;
+  border-top-left-radius: 19px;
+  border-bottom-left-radius: 19px;
+
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+
+.logo {
+  display: inline-block;
+  padding: 0 0 17px 0;
+  width: 50px;
+}
+
+.title {
+  color: #FFFFFF;
+}
+
+.title-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  padding: 15px;
+  background-color: #262626;
+}
+
+#menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 25px;
+}

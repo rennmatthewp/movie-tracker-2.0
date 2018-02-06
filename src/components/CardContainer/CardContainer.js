@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card } from '../Card/Card';
+import './CardContainer.css';
 
 const CardContainer = (props) => {
   const filmCards = props.films.map( (film, index) => {
@@ -10,16 +11,14 @@ const CardContainer = (props) => {
     })
 
   return (
-    <div>
+    <section className='CardContainer'>
       { filmCards }
-    </div>
+    </section>
   )
 }
 
 const mapStateToProps = (state) => ({
   films: state.films
 })
-
-
 
 export default connect(mapStateToProps, null)(CardContainer);

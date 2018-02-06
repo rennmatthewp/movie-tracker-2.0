@@ -8,9 +8,12 @@ import { fetchApi } from '../../helper/api'
 import { url } from '../../helper/.api-key';
 import './App.css';
 
-class App extends Component {
+export class App extends Component {
+  //add export for testing
 
   componentDidMount() {
+    //call fetch api url and store in a variable
+    //pass fetch int this.props.handleFetch
     this.props.handleFetch(url);
   }
 
@@ -24,11 +27,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   films: state.films
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
+  //don't do async/await 
   handleFetch: async(url) => dispatch(storeFilms( await fetchApi(url)))
 })
 

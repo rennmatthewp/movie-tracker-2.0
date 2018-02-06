@@ -1,9 +1,15 @@
 import React from 'react';
+import camera from '../../images/video-camera.svg';
+import './Header.css';
 
 export const Header = () => {
   return (
-    <div>
-      <h1> Movie Tracker </h1>
-    </div>
+    <header>
+      <div className='title-cont'>
+        <img className='logo' src={camera} />
+        <h1> Movie<span className='title'>Tracker</span> </h1>
+      </div>
+      <i className="fas fa-bars" id="menu"></i>
+    </header>
   )
 }

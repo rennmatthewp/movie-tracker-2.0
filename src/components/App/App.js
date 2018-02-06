@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
-import './App.css';
+import { connect } from 'react-redux';
+import { storeFilms } from '../../actions';
+
 import { Header } from '../Header/Header';
 import { Main } from '../Main/Main';
 import { fetchApi } from '../../helper/api'
 import { url } from '../../helper/.api-key';
+import './App.css';
 
 class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      films: []
-    }
-  }
 
   componentDidMount() {
-    fetchApi(url);
+    this.props.handleFetch(url);
   }
 
   render() {
@@ -28,4 +24,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  films: state.films
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  handleFetch: async(url) => dispatch(storeFilms( await fetchApi(url)))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

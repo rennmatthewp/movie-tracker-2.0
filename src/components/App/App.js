@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { storeFilms } from '../../actions';
 import { Header } from '../Header/Header';
@@ -22,6 +23,10 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  handleFetch: PropTypes.func
+};
 
 export const mapDispatchToProps = dispatch => ({
   handleFetch: films => dispatch(storeFilms(films))

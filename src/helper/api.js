@@ -1,14 +1,12 @@
-import { key } from './.api-key'
-
-export const fetchApi = async(url) => {
+export const fetchApi = async url => {
   const initalFetch = await fetch(url);
   const fetchedFilms = await initalFetch.json();
   const { results } = fetchedFilms;
   return cleaner(results);
-}
+};
 
-const cleaner = (films) => {
-  return films.map( film => ({
+const cleaner = films => {
+  return films.map(film => ({
     backdrop: film.backdrop_path,
     title: film.title,
     overview: film.overview,
@@ -16,6 +14,5 @@ const cleaner = (films) => {
     date: film.release_date,
     rating: film.vote_average,
     id: film.id
-    })
-  )
-}
+  }));
+};

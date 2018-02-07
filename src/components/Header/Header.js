@@ -5,11 +5,11 @@ import './Header.css';
 export const Header = () => {
   return (
     <header>
-      <div className='title-cont'>
-        <img className='logo' src={camera} />
-        <h1> Movie<span className='title'>Tracker</span> </h1>
+      <div className="title-cont">
+        <img className="logo" alt="logo" src={camera} />
+        <h1>Movie<span className="title">Tracker</span></h1>
       </div>
-      <i className="fas fa-bars" id="menu"></i>
+      <i className="fas fa-bars" id="menu" />
     </header>
-  )
-}
+  );
+};

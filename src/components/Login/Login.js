@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchApi } from '../../helper/api';
+import fetch from 'node-fetch';
 
 class Login extends Component {
   constructor(props) {
@@ -10,17 +12,31 @@ class Login extends Component {
     }
   }
 
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name] : e.target.value
+    })
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const users = await fetch('http://localhost:3000/api/users')
+    const userData = await users.json()
+    console.log(userData)
+  }
+
   render() {
     const { email, password } = this.state;
+
     return (
-      <form>
-        <input 
+      <form onSubmit={this.handleSubmit}>
+        <input onChange={this.handleChange}
           type="text" 
           name='email'
           placeholder='email' 
           value={email}
         />
-        <input 
+        <input onChange= {this.handleChange}
           type="text" 
           name='password'
           placeholder='password' 

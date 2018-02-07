@@ -6,6 +6,8 @@ import { Header } from '../Header/Header';
 import { Main } from '../Main/Main';
 import { fetchApi } from '../../helper/api';
 import { url } from '../../helper/.api-key';
+import { withRouter } from 'react-router';
+
 import './App.css';
 
 export class App extends Component {
@@ -32,4 +34,4 @@ export const mapDispatchToProps = dispatch => ({
   handleFetch: films => dispatch(storeFilms(films))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));

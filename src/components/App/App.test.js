@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, no-unused-vars */
 import React from 'react';
 import { App, mapDispatchToProps } from './App';
 import { shallow } from 'enzyme';
@@ -10,7 +11,15 @@ describe('App', () => {
     expect(renderedApp).toMatchSnapshot();
   });
 
-  it('should call handleFetch in componentDidMount', async () => {
+  it('should call the dispatch fn when using a fn from MDTP', () => {
+    const mockDispatch = jest.fn();
+    const mapped = mapDispatchToProps(mockDispatch);
+    const mockFilms = [{}, {}, {}, {}, {}];    
+    mapped.handleFetch();
+    expect(mockDispatch).toHaveBeenCalled();
+  });
+
+  it('should call handleFetch in CDM, passing in the films array', async () => {
     const mockFilms = [{}, {}, {}, {}, {}];
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
@@ -26,6 +35,6 @@ describe('App', () => {
     const mockHandleFetch = jest.fn();
     const renderedApp = await shallow(<App handleFetch={mockHandleFetch} />);
 
-    expect(mockHandleFetch).toHaveBeenCalled();
+    expect(mockHandleFetch).toHaveBeenCalledWith(mockFilms);
   });
 });

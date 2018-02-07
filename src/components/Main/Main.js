@@ -2,7 +2,7 @@ import React from 'react';
 import CardContainer from '../CardContainer/CardContainer';
 import { Switch, Route } from 'react-router-dom';
 
-export const Main = props => {
+export const Main = () => {
   return (
     <main>
       <Switch>

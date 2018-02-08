@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CardContainer from '../CardContainer/CardContainer';
+import Signup from '../Signup/Signup';
 import Login from '../Login/Login';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -15,7 +16,7 @@ const Main = props => {
           props.user.name ? (<Redirect to="/" />) : (<Login />)
           )}
         />
-        <Route path="/create-account" />
+        <Route path="/sign-up" component={ Signup } />
       </Switch>
     </main>
   ); 

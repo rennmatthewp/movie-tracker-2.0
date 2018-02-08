@@ -8,13 +8,10 @@ class Signup extends Component {
     this.state = {
       name: '',
       password: '',
-      email: '' 
+      email: '',
+      error: false 
     };
   }
-
-  displayError = (bool=false) => {
-      return bool ? <div>UNABLE TO CREATE ACCOUNT AT THIS TIME</div> : <div></div>
-    }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -22,7 +19,8 @@ class Signup extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    const stringState = JSON.stringify(this.state)
+    const { name, password, email } = this.state
+    const stringState = JSON.stringify({ name, password, email })
     try {
       const initialFetch = await fetch('http://localhost:3000/api/users/new', {
         method: 'POST',
@@ -31,29 +29,27 @@ class Signup extends Component {
           'Content-Type': 'application/json'
         })
       })
-      console.log(await initialFetch.json())
       if (initialFetch.status <= 200) {
-        return await initialFetch.json();
+        const user = { name, password, email };
+        this.props.logIn(user);
       } else {
         throw new Error('Bad response stats')
       }
     } catch(error) {
-      this.setState({ name: '', password: '', email: '' })
+      this.setState({ 
+        name: '', 
+        password: '', 
+        email: '',
+        error: true })
     }
-    // const parsedFetch = await initialFetch.json()
-    //determine error
-    // const { name, email, password } = this.state;
-    // const user = data.find(user => {
-    //   return user.email === email && user.password === password;
-    // });
-    // user ? this.props.logIn(user) : alert('try again looser')
   };
 
   render() {
     const { email, password, name } = this.state;
-
+    const displayError = this.state.error ? <div>UNABLE TO CREATE ACCOUNT AT THIS TIME</div> : <div></div>
     return (
       <form onSubmit={this.handleSubmit}>
+      { displayError }
       <input
           onChange={this.handleChange}
           type="text"

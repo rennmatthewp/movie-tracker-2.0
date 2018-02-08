@@ -16,8 +16,11 @@ const Main = props => {
           props.user.name ? (<Redirect to="/" />) : (<Login />)
           )}
         />
-        <Route path="/sign-up" component={ Signup } />
-      </Switch>
+         <Route path="/sign-up" render={() => (
+          props.user.name ? (<Redirect to="/" />) : (<Signup />)
+          )}
+        />      
+        </Switch>
     </main>
   ); 
 };

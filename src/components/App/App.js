@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { storeFilms } from '../../actions';
-import { Header } from '../Header/Header';
+import Header from '../Header/Header';
 import Main from '../Main/Main';
 import { getFilms } from '../../helper/api';
 import { url } from '../../helper/.api-key';

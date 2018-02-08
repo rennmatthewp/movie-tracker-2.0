@@ -20,8 +20,8 @@ CardContainer.propTypes = {
   films: PropTypes.arrayOf(PropTypes.object)
 };
 
-export const mapStateToProps = state => ({
-  films: state.films
+export const mapStateToProps = store => ({
+  films: store.films
 });
 
 export default connect(mapStateToProps, null)(CardContainer);

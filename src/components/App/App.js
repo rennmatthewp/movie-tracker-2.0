@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { storeFilms } from '../../actions';
 import { Header } from '../Header/Header';
-import { Main } from '../Main/Main';
+import Main from '../Main/Main';
 import { getFilms } from '../../helper/api';
 import { url } from '../../helper/.api-key';
 import { withRouter } from 'react-router';

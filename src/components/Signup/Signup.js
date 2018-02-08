@@ -8,29 +8,40 @@ class Signup extends Component {
     this.state = {
       name: '',
       password: '',
-      email: ''
+      email: '' 
     };
   }
 
+  displayError = (bool=false) => {
+      return bool ? <div>UNABLE TO CREATE ACCOUNT AT THIS TIME</div> : <div></div>
+    }
+
   handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
     const stringState = JSON.stringify(this.state)
-    const initialFetch = await fetch('http://localhost:3000/api/users/new', {
-      method: 'POST',
-      body: stringState,
-      headers: new Headers({
-        'Content-Type': 'application/json'
+    try {
+      const initialFetch = await fetch('http://localhost:3000/api/users/new', {
+        method: 'POST',
+        body: stringState,
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
       })
-    })
-
-    const parsedFetch = await initialFetch.json()
-    console.log(parsedFetch)
+      console.log(await initialFetch.json())
+      if (initialFetch.status <= 200) {
+        return await initialFetch.json();
+      } else {
+        throw new Error('Bad response stats')
+      }
+    } catch(error) {
+      this.setState({ name: '', password: '', email: '' })
+    }
+    // const parsedFetch = await initialFetch.json()
+    //determine error
     // const { name, email, password } = this.state;
     // const user = data.find(user => {
     //   return user.email === email && user.password === password;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { storeFilms } from '../../actions';
 import { Header } from '../Header/Header';
 import { Main } from '../Main/Main';
-import { fetchApi } from '../../helper/api';
+import { getFilms } from '../../helper/api';
 import { url } from '../../helper/.api-key';
 import { withRouter } from 'react-router';
 
@@ -12,7 +12,7 @@ import './App.css';
 
 export class App extends Component {
   async componentDidMount() {
-    const filmsArray = await fetchApi(url);
+    const filmsArray = await getFilms(url);
     this.props.handleFetch(filmsArray);
   }
 

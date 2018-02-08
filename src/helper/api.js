@@ -1,11 +1,15 @@
 export const fetchApi = async url => {
   const initalFetch = await fetch(url);
-  const fetchedFilms = await initalFetch.json();
-  const { results } = fetchedFilms;
-  return cleaner(results);
+  const resolvedPromise = await initalFetch.json();
+  return resolvedPromise
 };
 
-const cleaner = films => {
+export const getFilms = async (url) => {
+  const { results } = await fetchApi(url);
+  return cleanFilms(results)
+}
+
+const cleanFilms = films => {
   return films.map(film => ({
     backdrop: film.backdrop_path,
     title: film.title,

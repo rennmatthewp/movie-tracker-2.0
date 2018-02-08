@@ -17,7 +17,7 @@ export const Header = () => {
       </Link>
       <Link to='/login'>Login</Link>
       <br />
-      <Link to='/create-account'>Create Account</Link>
+      <Link to='/sign-up'>Create Account</Link>
     </header>
   );
 };

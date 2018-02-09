@@ -1,10 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import star from '../../images/favorite.svg';
 import './Card.css';
 
-export const Card = ({ poster, title, overview, date }) => {
+export const Card = ({ film, addFavorite }) => {
+  const { poster, title, overview, date } = film;
   return (
     <article className="Card">
+      <img
+        className="favorite"
+        src={ star }
+        alt="favorite this movie"
+        onClick={ addFavorite }
+      />
       <img
         className="poster"
         src={`https://image.tmdb.org/t/p/w500${poster}`}

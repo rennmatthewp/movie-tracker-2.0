@@ -26,7 +26,7 @@ const Main = props => {
 };
 
 export const mapStateToProps = store => ({
-  user: store.user
+  user: store.user,
 });
 
 export default withRouter(connect(mapStateToProps, null)(Main));

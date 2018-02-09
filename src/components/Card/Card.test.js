@@ -5,7 +5,16 @@ import { Card } from './Card';
 describe('Card', () => {
   let renderedCard;
   beforeEach(() => {
-    renderedCard = shallow(<Card />);
+    const mockFilm = {
+      poster: '',
+      title: '',
+      overview:'',
+      date: '',
+      rating: 5,
+      id: 1
+    }
+
+    renderedCard = shallow(<Card film={mockFilm}/>);
   });
 
   it('should match the snapshot', () => {

@@ -1,4 +1,4 @@
-export const fetchApi = async url => {
+export const fetchApi = async (url) => {
   const initalFetch = await fetch(url);
   const resolvedPromise = await initalFetch.json();
   return resolvedPromise
@@ -20,3 +20,14 @@ const cleanFilms = films => {
     id: film.id
   }));
 };
+
+export const getUserData = async (url, state) => {
+  const { data } = await fetchApi(url)
+  const { email, password } = state;
+  const user = data.find(user => {
+    return user.email === email && user.password === password;
+  });
+  const currentFavorites = await fetchApi(`${url}/${user.id}/favorites/`)
+  user.favorites = [...currentFavorites.data]
+  return user;
+}

@@ -9,9 +9,9 @@ import './Header.css';
    
 export const Header = ({ user, signOut }) => {
   const displayUser = user.name ? 
-    <div> 
-      <h2>Hello, {user.name} </h2> 
-      <button type='submit' onClick={signOut}> Sign Out </button> 
+    <div className='user-links-cont'> 
+      <p className='user-link'>Hello, {user.name} </p> 
+      <button className='submit-button' type='submit' onClick={signOut}> Sign Out </button> 
     </div> :
     <div className='user-links-cont'>  
       <Link to='/login' className='user-link'>Login</Link>

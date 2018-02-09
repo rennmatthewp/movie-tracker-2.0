@@ -35,7 +35,7 @@ a h1 {
   background-color: #262626;
 }
 
-.user-links-cont {
+.user-sign-up {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -46,11 +46,14 @@ a h1 {
   align-items: center;
 }
 
-.user-links-cont a {
+.user-sign-up a {
   color: white;
   text-decoration: none;
 }
 
+#menu {
+  display: none;
+  
 .submit-button {
   border: none;
 }
@@ -77,4 +80,49 @@ header {
   right: 10px;
   color: white;
   font-size: 25px;
+}
+
+@media screen and (max-width: 480px) {
+  .user-sign-up {
+    display: none;
+  }
+
+  #bullet-pt {
+    display: none;
+  }
+
+  #menu {
+    font-size: 30px;
+    color: white;
+  }
+
+  .menu-mobile {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: block;
+    width: 50px;
+    height: 100px;
+  }
+
+  .menu-mobile:hover {
+    cursor: pointer;
+  }
+
+  .menu-mobile:hover .user-sign-up,
+  .menu-mobile:focus .user-sign-up {
+    position: absolute;
+    top: 49px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    height: 67px;
+    background-color: #ffffff30;
+    cursor: pointer;
+  }
+
+
 }

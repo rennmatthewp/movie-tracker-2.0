@@ -9,11 +9,12 @@ import './Header.css';
    
 export const Header = ({ user, signOut }) => {
   const displayUser = user.name ? 
-    <div className='user-links-cont'> 
-      <p className='user-link'>Hello, {user.name} </p> 
-      <button className='submit-button' type='submit' onClick={signOut}> Sign Out </button> 
+        
+    <div className='user-signed-in'> 
+      <h2>Hello, {user.name} </h2> 
+      <button type='submit' onClick={signOut}> Sign Out </button> 
     </div> :
-    <div className='user-links-cont'>  
+    <div className='user-sign-up'>  
       <Link to='/login' className='user-link'>Login</Link>
       <div id='bullet-pt'></div>
       <Link to='/sign-up' className='user-link'>Create Account</Link>
@@ -25,7 +26,10 @@ export const Header = ({ user, signOut }) => {
         <img className="logo" alt="logo" src={camera} />
         <h1>Movie<span className="title">Tracker</span></h1>
       </Link>
-      { displayUser }
+      <div className="menu-mobile">
+        <i className="fas fa-bars" id="menu"></i>
+        { displayUser }
+      </div>
     </header>
   );
 };

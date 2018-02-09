@@ -65,7 +65,6 @@ export class Card extends Component {
       </article>
     );
   }
- 
 };
 
 Card.propTypes = {

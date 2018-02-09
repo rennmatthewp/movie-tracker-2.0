@@ -9,6 +9,7 @@ import './Header.css';
    
 export const Header = ({ user, signOut }) => {
   const displayUser = user.name ? 
+        
     <div className='user-signed-in'> 
       <h2>Hello, {user.name} </h2> 
       <button type='submit' onClick={signOut}> Sign Out </button> 

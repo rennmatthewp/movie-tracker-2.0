@@ -6,7 +6,9 @@ describe('Header', () => {
   let renderedHeader;
 
   beforeEach(() => {
-    renderedHeader = shallow(<Header />);
+    const user = {name:'person'}
+    const mockSignOut = jest.fn()
+    renderedHeader = shallow(<Header user={user} signOut={mockSignOut}/>);
   });
 
   it('should match the snapshot', () => {

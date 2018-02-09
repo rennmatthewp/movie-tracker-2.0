@@ -4,7 +4,7 @@ exports[`Main should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__unrendered__): <withRouter(Connect(Component)) />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -15,165 +15,25 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": <Switch>
-        <Route
-                component={[Function]}
-                exact={true}
-                path="/"
-        />
-        <Route
-                path="/login/"
-        />
-        <Route
-                path="/create-account/"
-        />
-</Switch>,
+      "render": [Function],
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          <Route
-            component={[Function]}
-            exact={true}
-            path="/"
-/>,
-          <Route
-            path="/login/"
-/>,
-          <Route
-            path="/create-account/"
-/>,
-        ],
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "component": [Function],
-            "exact": true,
-            "path": "/",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "path": "/login/",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "path": "/create-account/",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
-      "type": [Function],
-    },
-    "type": "main",
+    "rendered": null,
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
-        "children": <Switch>
-          <Route
-                    component={[Function]}
-                    exact={true}
-                    path="/"
-          />
-          <Route
-                    path="/login/"
-          />
-          <Route
-                    path="/create-account/"
-          />
-</Switch>,
+        "render": [Function],
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            <Route
-              component={[Function]}
-              exact={true}
-              path="/"
-/>,
-            <Route
-              path="/login/"
-/>,
-            <Route
-              path="/create-account/"
-/>,
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "exact": true,
-              "path": "/",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "path": "/login/",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "path": "/create-account/",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-        ],
-        "type": [Function],
-      },
-      "type": "main",
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

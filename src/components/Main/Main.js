@@ -7,7 +7,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 
-const Main = props => {
+export const Main = props => {
   return (
     <main>
       <Switch>

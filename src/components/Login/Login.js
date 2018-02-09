@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { logIn } from "../../actions";
 import { fetchApi } from '../../helper/api';
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -22,9 +22,22 @@ h3 {
   margin: 0 auto 20px auto;
   width: 300px;
   box-sizing: border-box;
-  background-color: grey;
   background-color: #f1f1f1;
-  border: 2px ridge #b5b5b5;
+  border: 2px solid #cccccc;
+}
+
+.favorite-img {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 50px;
+  height: 50px;
+  background-image: url('../../images/favorite.svg');
+}
+
+.favorite-img:hover {
+  background-image: url('../../images/favorite-hover.svg');
+  cursor: pointer;
 }
 
 .information {
@@ -35,4 +48,21 @@ h3 {
 
 .poster {
   width: 297px; 
+}
+
+@media screen and (min-width: 545px) {
+  .Card {
+    display: flex;
+    width: 490px;
+    height: 350px;
+  }
+
+  .information {
+    height: 329px;
+    overflow-y: scroll;
+  }
+
+  .poster {
+    width: 250px;
+  }
 }

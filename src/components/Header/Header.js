@@ -13,19 +13,17 @@ export const Header = ({ user, signOut }) => {
       <h2>Hello, {user.name} </h2> 
       <button type='submit' onClick={signOut}> Sign Out </button> 
     </div> :
-    <div>  
-      <Link to='/login'>Login</Link>
-      <br />
-      <Link to='/sign-up'>Create Account</Link>
+    <div className='user-links-cont'>  
+      <Link to='/login' className='user-link'>Login</Link>
+      <div id='bullet-pt'></div>
+      <Link to='/sign-up' className='user-link'>Create Account</Link>
     </div>
 
   return (
     <header>
-      <Link to='/'>
-      <div className="title-cont">
+      <Link to='/' className="title-cont">
         <img className="logo" alt="logo" src={camera} />
         <h1>Movie<span className="title">Tracker</span></h1>
-      </div>
       </Link>
       { displayUser }
     </header>

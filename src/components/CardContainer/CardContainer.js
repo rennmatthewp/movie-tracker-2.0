@@ -2,23 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Card } from '../Card/Card';
-import { addFavorite } from '../../actions'
+import { addFavorite, removeFavorite } from '../../actions'
 import { Redirect } from 'react-router-dom';
 import './CardContainer.css';
 
 export class CardContainer extends Component{
-  constructor(props) {
-    super(props);
-
-
-  }
-
   handleFavorite = (filmId) => {
-    console.log(filmId)
-    //find the film Id in user favorites from backend
-    //if there, remove it from favorites
-    //if not there, add it to favorites
-    //post either result to DB
+    const { user, addFavorite, removeFavorite, films } = this.props;
+    const found = films.find( film => {
+      return film.id === parseInt(filmId)
+    });
+    const foundInUser = user.favorites.find(film => {
+      return film.id === parseInt(filmId)
+    });
+    foundInUser ? removeFavorite(foundInUser) : addFavorite(found)
   }
 
   render() {
@@ -47,7 +44,8 @@ export const mapStateToProps = store => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  addFavorite: film => dispatch(addFavorite(film))
+  addFavorite: film => dispatch(addFavorite(film)),
+  removeFavorite: film => dispatch(removeFavorite(film))
 })
 
-export default connect(mapStateToProps, null)(CardContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logIn } from "../../actions";
-import { fetchApi } from '../../helper/api';
+import { logIn } from '../../actions';
+import { getUserData } from '../../helper/api';
 
 export class Login extends Component {
   constructor(props) {
@@ -20,11 +20,7 @@ export class Login extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    const { data } = await fetchApi('http://localhost:3000/api/users');
-    const { email, password } = this.state;
-    const user = data.find(user => {
-      return user.email === email && user.password === password;
-    });
+    const user = await getUserData('http://localhost:3000/api/users', this.state)
     user ? this.props.logIn(user) : alert('try again looser')
   };
 

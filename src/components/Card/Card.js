@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import star from '../../images/favorite.svg';
 import './Card.css';
 
 export class Card extends Component {
@@ -35,7 +34,7 @@ export class Card extends Component {
   render() {
     const warningDiv = this.state.clicked ? 
       <div className='warning'>
-        <h1> Please login or create an account to favorite </h1>
+        <h3> Please login or create an account to favorite </h3>
         <button onClick={ this.toggleFavorite }> Close </button>
       </div> :
       <div></div>
@@ -44,12 +43,10 @@ export class Card extends Component {
 
     return (
       <article className="Card">
-        <img
-          className="favorite"
-          src={ star }
-          alt="favorite this movie"
+        <button
+          className="favorite-img"
           id={ id }
-          onClick={ this.toggleFavorite }
+          onClick={this.toggleFavorite}
         />
         <img
           className="poster"

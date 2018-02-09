@@ -1,8 +1,13 @@
-h1 {
+a {
+  text-decoration: none;
+}
+
+a h1 {
   font-family: 'Anton', sans-serif;
   padding-left: 10px;
   border-top-left-radius: 19px;
   border-bottom-left-radius: 19px;
+  color: black;
 
   background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
   background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
@@ -25,11 +30,36 @@ h1 {
   align-items: center;
   align-content: center;
   padding: 15px;
+  width: 250px;
+  margin: 0;
   background-color: #262626;
+}
+
+.user-links-cont {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-links-cont a {
+  color: white;
+  text-decoration: none;
 }
 
 header {
   background-color: #262626;
+}
+
+#bullet-pt {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: white;
 }
 
 #menu {

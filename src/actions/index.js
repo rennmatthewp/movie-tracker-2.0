@@ -17,3 +17,8 @@ export const addFavorite = film => ({
   type: 'ADD_FAVORITE',
   film
 })
+
+export const removeFavorite = film => ({
+  type: 'REMOVE_FAVORITE',
+  film
+})

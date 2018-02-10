@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logIn } from '../../actions';
 import { getUserData } from '../../helper/api';
+import './Login.css';
 
 export class Login extends Component {
   constructor(props) {

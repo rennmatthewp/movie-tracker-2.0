@@ -3,6 +3,7 @@ import { Card } from '../Card/Card';
 import { connect } from 'react-redux';
 import { addFavorite, removeFavorite } from '../../actions'
 import { sendFavorite } from '../../helper/api';
+import './Favorites.css';
 
 export const Favorites = (props) => {
 

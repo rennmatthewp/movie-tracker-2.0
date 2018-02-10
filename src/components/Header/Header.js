@@ -11,13 +11,22 @@ export const Header = ({ user, signOut }) => {
   const displayUser = user.name ? 
         
     <div className='user-signed-in'> 
-      <h2>Hello, {user.name} </h2> 
-      <button type='submit' onClick={signOut}> Sign Out </button> 
+      <h2>Hello, <span>{user.name}</span></h2> 
+      <Link to='/favorites' className='user-link'>
+        Favorites
+      </Link>
+      <Link to='/' className='user-link' onClick={signOut} > 
+        Sign Out
+      </Link> 
     </div> :
     <div className='user-sign-up'>  
-      <Link to='/login' className='user-link'>Login</Link>
+      <Link to='/login' className='user-link'>
+        Login
+      </Link>
       <div id='bullet-pt'></div>
-      <Link to='/sign-up' className='user-link'>Create Account</Link>
+      <Link to='/sign-up' className='user-link'>
+        Create Account
+      </Link>
     </div>
 
   return (

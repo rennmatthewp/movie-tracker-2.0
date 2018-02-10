@@ -22,15 +22,15 @@ export class CardContainer extends Component{
 
   render() {
     const filmCards = this.props.films.map((film, index) => (
-      <Card user={this.props.user} 
-        film={film} 
-        key={index}
-        handleFavorite={this.handleFavorite} 
+      <Card user={ this.props.user } 
+        film={ film } 
+        key={ index }
+        handleFavorite={ this.handleFavorite } 
       />
   ));
     return (
       <section className="CardContainer">
-        {filmCards}
+        { filmCards }
       </section>
     );
   }

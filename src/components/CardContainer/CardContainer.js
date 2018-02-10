@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Card } from '../Card/Card';
 import { addFavorite, removeFavorite } from '../../actions'
 import { Redirect } from 'react-router-dom';
-import { sendFavorite } from '../../helper/api';
+import { sendFavorite, deleteFavorite } from '../../helper/api';
 import './CardContainer.css';
 
 export class CardContainer extends Component{
@@ -12,12 +12,14 @@ export class CardContainer extends Component{
   handleFavorite = (filmId) => {
     const { user, addFavorite, removeFavorite, films } = this.props;
     const found = films.find( film => {
-      return film.id === parseInt(filmId)
+      return film.movie_id === parseInt(filmId)
     });
     const foundInUser = user.favorites.find(film => {
-      return film.id === parseInt(filmId)
+      return film.movie_id === parseInt(filmId)
     });
-    foundInUser ? removeFavorite(foundInUser) : (addFavorite(found), sendFavorite(user, found))
+
+    foundInUser ? (removeFavorite(foundInUser), deleteFavorite(user, foundInUser)) 
+      : (addFavorite(found), sendFavorite(user, found))
   }
 
   render() {

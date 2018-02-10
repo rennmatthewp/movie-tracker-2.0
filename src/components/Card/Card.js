@@ -39,13 +39,13 @@ export class Card extends Component {
       </div> :
       <div></div>
 
-    const { id, title, release_date, overview, poster_path } = this.props.film
+    const { movie_id, title, release_date, overview, poster_path } = this.props.film
 
     return (
       <article className="Card">
         <button
           className="favorite-img"
-          id={ id }
+          id={ movie_id }
           onClick={this.toggleFavorite}
         />
         <img

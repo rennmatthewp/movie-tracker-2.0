@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logIn } from "../../actions";
-import { postFetch } from "../../helper/api";
+import { postFetch, getUserData } from "../../helper/api";
 
 export class Signup extends Component {
   constructor(props) {
@@ -24,9 +24,10 @@ export class Signup extends Component {
     const stringState = { name, password, email }
     const url = 'users/new'
     try {
-      await postFetch(url, stringState);
-      const user = { name, password, email };
+      await postFetch(url, stringState, 'POST');
+      const user = await getUserData('http://localhost:3000/api/users', this.state)
       this.props.logIn(user);
+
     } catch(error) {
       this.setState({ 
         name: '', 

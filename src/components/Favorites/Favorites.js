@@ -10,10 +10,10 @@ export const Favorites = (props) => {
   const handleFavorite = (filmId) => {
     const { user, addFavorite, removeFavorite, films } = this.props;
     const found = films.find( film => {
-      return film.id === parseInt(filmId)
+      return film.movie_id === parseInt(filmId)
     });
     const foundInUser = user.favorites.find(film => {
-      return film.id === parseInt(filmId)
+      return film.movie_id === parseInt(filmId)
     });
     foundInUser ? removeFavorite(foundInUser) : (addFavorite(found), sendFavorite(user, found))
   }

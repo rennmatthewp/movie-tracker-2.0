@@ -25,8 +25,8 @@ export class Card extends Component {
     if(this.state.clicked === false) {
      this.determineWarning(e)
     } else {
-    this.setState({
-      clicked: false
+      this.setState({
+        clicked: false
     })
     }
   }

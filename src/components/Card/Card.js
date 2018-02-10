@@ -39,7 +39,7 @@ export class Card extends Component {
       </div> :
       <div></div>
 
-    const { id, title, date, overview, poster } = this.props.film
+    const { id, title, release_date, overview, poster_path } = this.props.film
 
     return (
       <article className="Card">
@@ -50,13 +50,13 @@ export class Card extends Component {
         />
         <img
           className="poster"
-          src={`https://image.tmdb.org/t/p/w500${poster}`}
+          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           alt="movie-poster"
         />
         { warningDiv }
         <div className="information">
           <h2>{title}</h2>
-          <h3>{date}</h3>
+          <h3>{release_date}</h3>
           <p>{overview}</p>
         </div>
       </article>

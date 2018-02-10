@@ -31,3 +31,40 @@ export const getUserData = async (url, state) => {
   user.favorites = [...currentFavorites.data]
   return user;
 }
+
+export const sendFavorite = async (user, film) => {
+  const userId = user.id;
+  const { id, title, overview, poster, date, rating } = film;
+  const favoriteToStore = {
+    movie_id: id,
+    user_id: userId,
+    title,
+    poster_path: poster,
+    release_date: date,
+    vote_average: rating,
+    overview,
+  }
+  postFetch('users/favorites/new', favoriteToStore)
+    
+}
+
+export const postFetch = async (url, itemToStore) => {
+  const rootURL = 'http://localhost:3000/api/';
+  try {
+    const initialFetch = await fetch(`${rootURL}${url}`, {
+      method: 'POST',
+      body: JSON.stringify(itemToStore),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    })
+    console.log(initialFetch);
+    if (initialFetch.status > 200) {
+      throw new Error('Bad response stats')
+    }
+  } catch(error) {
+    console.log(error)
+  }
+}
+
+  

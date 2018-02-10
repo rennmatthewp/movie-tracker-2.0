@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logIn } from "../../actions";
+import { postFetch } from "../../helper/api";
 
 export class Signup extends Component {
   constructor(props) {
@@ -20,21 +21,12 @@ export class Signup extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     const { name, password, email } = this.state
-    const stringState = JSON.stringify({ name, password, email })
+    const stringState = { name, password, email }
+    const url = 'users/new'
     try {
-      const initialFetch = await fetch('http://localhost:3000/api/users/new', {
-        method: 'POST',
-        body: stringState,
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        })
-      })
-      if (initialFetch.status <= 200) {
-        const user = { name, password, email };
-        this.props.logIn(user);
-      } else {
-        throw new Error('Bad response stats')
-      }
+      await postFetch(url, stringState);
+      const user = { name, password, email };
+      this.props.logIn(user);
     } catch(error) {
       this.setState({ 
         name: '', 
@@ -46,7 +38,7 @@ export class Signup extends Component {
 
   render() {
     const { email, password, name } = this.state;
-    const displayError = this.state.error ? <div>UNABLE TO CREATE ACCOUNT AT THIS TIME</div> : <div></div>
+    const displayError = this.state.error ? <div>UNABLE TO CREATE ACCOUNT AT THIS TIME :(</div> : <div></div>
     return (
       <form onSubmit={this.handleSubmit}>
       { displayError }

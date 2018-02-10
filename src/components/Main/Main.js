@@ -12,7 +12,10 @@ export const Main = props => {
   return (
     <main>
       <Switch>
-        <Route exact path="/" component={ CardContainer } />
+        <Route exact path="/" render={() => (
+          <CardContainer films={props.films} />
+          )} 
+        />
         <Route path="/login" render={() => (
           props.user.name ? (<Redirect to="/" />) : (<Login />)
           )}
@@ -22,7 +25,9 @@ export const Main = props => {
           )}
         />
         <Route path="/favorites" render={() => (
-          props.user.name ? (<Favorites />) : (<Redirect to="/" />)
+          props.user.name ? 
+            (<CardContainer films={props.user.favorites} />) 
+            : (<Redirect to="/" />)
           )} 
         />     
         </Switch>
@@ -32,6 +37,7 @@ export const Main = props => {
 
 export const mapStateToProps = store => ({
   user: store.user,
+  films: store.films
 });
 
 export default withRouter(connect(mapStateToProps, null)(Main));

@@ -7,19 +7,32 @@ import { Redirect } from 'react-router-dom';
 import { sendFavorite, deleteFavorite } from '../../helper/api';
 import './CardContainer.css';
 
-export class CardContainer extends Component{
+export class CardContainer extends Component {
   
   handleFavorite = (filmId) => {
-    const { user, addFavorite, removeFavorite, films } = this.props;
-    const found = films.find( film => {
-      return film.movie_id === parseInt(filmId)
-    });
+    const { user, films } = this.props;
     const foundInUser = user.favorites.find(film => {
       return film.movie_id === parseInt(filmId)
     });
 
-    foundInUser ? (removeFavorite(foundInUser), deleteFavorite(user, foundInUser)) 
-      : (addFavorite(found), sendFavorite(user, found))
+    foundInUser ?  this.handleRemoveFavorite(foundInUser)
+      : this.handleAddFavorite(filmId)   
+
+  }
+
+  handleAddFavorite = (filmId) => {
+    const { user, films, addFavorite } = this.props;
+    const filmInState = films.find( film => {
+      return film.movie_id === parseInt(filmId)
+    });
+    addFavorite(filmInState);
+    sendFavorite(user, filmInState);
+  }
+
+  handleRemoveFavorite = (foundInUser) => {
+    const { user, removeFavorite } = this.props;
+    removeFavorite(foundInUser);
+    deleteFavorite(user, foundInUser);
   }
 
   render() {
@@ -43,7 +56,6 @@ CardContainer.propTypes = {
 };
 
 export const mapStateToProps = store => ({
-  films: store.films,
   user: store.user
 });
 

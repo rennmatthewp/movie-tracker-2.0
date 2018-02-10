@@ -39,9 +39,6 @@ export const Header = ({ user, signOut }) => {
         <i className="fas fa-bars" id="menu"></i>
         { displayUser }
       </div>
-      <Link to='/favorites'>
-        <button>Favorites</button>
-      </Link>
     </header>
   );
 };

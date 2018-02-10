@@ -10,14 +10,14 @@ export const getFilms = async (url) => {
 }
 
 const cleanFilms = films => {
-  return films.map(film => ({
+  return films.map(film =>({
     backdrop: film.backdrop_path,
     title: film.title,
     overview: film.overview,
     poster_path: film.poster_path,
     release_date: film.release_date,
     vote_average: film.vote_average,
-    id: film.id
+    movie_id: film.id
   }));
 };
 
@@ -33,32 +33,37 @@ export const getUserData = async (url, state) => {
 }
 
 export const sendFavorite = async (user, film) => {
-  const userId = user.id;
-  const { id, title, overview, poster, date, rating } = film;
+  const { id } = user;
+  const { movie_id, title, poster_path, release_date, vote_average, overview } = film;
   const favoriteToStore = {
-    movie_id: id,
-    user_id: userId,
+    movie_id,
+    user_id: id,
     title,
-    poster_path: poster,
-    release_date: date,
-    vote_average: rating,
+    poster_path,
+    release_date,
+    vote_average,
     overview,
   }
-  postFetch('users/favorites/new', favoriteToStore)
-    
+  postFetch('users/favorites/new', favoriteToStore, 'POST')
 }
 
-export const postFetch = async (url, itemToStore) => {
+export const deleteFavorite = async (user, film) => {
+  const { id } = user;
+  const filmId = film.movie_id
+  const filmToDelete = {id, filmId}
+  fetch(`http://localhost:3000/api/users/${id}/favorites/${filmId}`, {method: 'DELETE', body: JSON.stringify(filmToDelete)})
+}
+
+export const postFetch = async (url, itemToStore, method) => {
   const rootURL = 'http://localhost:3000/api/';
   try {
     const initialFetch = await fetch(`${rootURL}${url}`, {
-      method: 'POST',
+      method,
       body: JSON.stringify(itemToStore),
       headers: new Headers({
         'Content-Type': 'application/json'
       })
     })
-    console.log(initialFetch);
     if (initialFetch.status > 200) {
       throw new Error('Bad response stats')
     }

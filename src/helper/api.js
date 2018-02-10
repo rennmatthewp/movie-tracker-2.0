@@ -14,9 +14,9 @@ const cleanFilms = films => {
     backdrop: film.backdrop_path,
     title: film.title,
     overview: film.overview,
-    poster: film.poster_path,
-    date: film.release_date,
-    rating: film.vote_average,
+    poster_path: film.poster_path,
+    release_date: film.release_date,
+    vote_average: film.vote_average,
     id: film.id
   }));
 };

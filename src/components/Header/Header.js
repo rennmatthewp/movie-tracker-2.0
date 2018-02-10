@@ -15,7 +15,12 @@ export const Header = ({ user, signOut }) => {
       <Link to='/favorites' className='user-link'>
         Favorites
       </Link>
-      <Link to='/' className='user-link' onClick={signOut} > 
+      <Link 
+        to='/' 
+        className='user-link' 
+        id='sign-out'
+        onClick={signOut} 
+      > 
         Sign Out
       </Link> 
     </div> :

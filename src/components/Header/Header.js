@@ -1,48 +1,56 @@
 import React from 'react';
 import camera from '../../images/video-camera.svg';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'; 
-import { withRouter } from 'react-router';
-import { signOut } from '../../actions'
+import { connect } from 'react-redux';
+import { signOut } from '../../actions';
+import PropTypes from 'prop-types';
 import './Header.css';
 
-   
 export const Header = ({ user, signOut }) => {
-  const displayUser = user.name ? 
-        
-    <div className='user-signed-in'> 
-      <h2>Hello, <span>{user.name}</span></h2> 
-      <Link to='/favorites' className='user-link'>
+  const displayUser = user.name ? (
+    <div className="user-signed-in">
+      <h2>
+        Hello, <span>{user.name}</span>
+      </h2>
+      <Link to="/favorites" className="user-link">
         Favorites
       </Link>
-      <Link to='/' className='user-link' onClick={signOut} > 
+      <Link to="/" className="user-link" onClick={signOut}>
         Sign Out
-      </Link> 
-    </div> :
-    <div className='user-sign-up'>  
-      <Link to='/login' className='user-link'>
+      </Link>
+    </div>
+  ) : (
+    <div className="user-sign-up">
+      <Link to="/login" className="user-link">
         Login
       </Link>
-      <div id='bullet-pt'></div>
-      <Link to='/sign-up' className='user-link'>
+      <div id="bullet-pt" />
+      <Link to="/sign-up" className="user-link">
         Create Account
       </Link>
     </div>
+  );
 
   return (
     <header>
-      <Link to='/' className="title-cont">
+      <Link to="/" className="title-cont">
         <img className="logo" alt="logo" src={camera} />
-        <h1>Movie<span className="title">Tracker</span></h1>
+        <h1>
+          Movie<span className="title">Tracker</span>
+        </h1>
       </Link>
       <div className="menu-mobile">
-        <i className="fas fa-bars" id="menu"></i>
-        { displayUser }
+        <i className="fas fa-bars" id="menu" />
+        {displayUser}
       </div>
     </header>
   );
 };
 
+Header.propTypes = {
+  user: PropTypes.object,
+  signOut: PropTypes.func
+};
 
 export const mapStateToProps = store => ({
   user: store.user
@@ -50,6 +58,6 @@ export const mapStateToProps = store => ({
 
 export const mapDispatchToProps = dispatch => ({
   signOut: user => dispatch(signOut(user))
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -8,20 +8,20 @@ describe('Card', () => {
     const mockFilm = {
       poster: '',
       title: '',
-      overview:'',
+      overview: '',
       date: '',
       rating: 5,
       id: 1
-    }
+    };
 
-    renderedCard = shallow(<Card film={mockFilm}/>);
+    renderedCard = shallow(<Card film={mockFilm} />);
   });
 
   it('should match the snapshot', () => {
     expect(renderedCard).toMatchSnapshot();
   });
 
-  //eslint-disable-next-line max-len  
+  //eslint-disable-next-line max-len
   xit('should call toggleFavorite on click with the targeted film object', () => {});
 
   xit('should change UI to indicate its favorite status', () => {

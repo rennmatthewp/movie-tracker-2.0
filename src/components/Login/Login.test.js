@@ -11,7 +11,7 @@ describe('Login', () => {
 
   xit('should call handleInputChange onChange of the inputs', () => {});
 
-  xit('handleInputChange should set state with input values', () => {})
+  xit('handleInputChange should set state with input values', () => {});
 
   xit('should call handleSubmit on submit of the form', () => {});
 });

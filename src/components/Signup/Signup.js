@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logIn } from "../../actions";
-import { postFetch, getUserData } from "../../helper/api";
+import { logIn } from '../../actions';
+import { postFetch, getUserData } from '../../helper/api';
+import PropTypes from 'prop-types';
 
 export class Signup extends Component {
   constructor(props) {
@@ -10,40 +11,47 @@ export class Signup extends Component {
       name: '',
       password: '',
       email: '',
-      error: false 
+      error: false
     };
   }
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = async e => {
-    e.preventDefault();
-    const { name, password, email } = this.state
-    const stringState = { name, password, email }
-    const url = 'users/new'
+  handleSubmit = async event => {
+    event.preventDefault();
+    const { name, password, email } = this.state;
+    const stringState = { name, password, email };
+    const url = 'users/new';
     try {
       await postFetch(url, stringState, 'POST');
-      const user = await getUserData('http://localhost:3000/api/users', this.state)
+      const user = await getUserData(
+        'http://localhost:3000/api/users',
+        this.state
+      );
       this.props.logIn(user);
-
-    } catch(error) {
-      this.setState({ 
-        name: '', 
-        password: '', 
+    } catch (error) {
+      this.setState({
+        name: '',
+        password: '',
         email: '',
-        error: true })
+        error: true
+      });
     }
   };
 
   render() {
     const { email, password, name } = this.state;
-    const displayError = this.state.error ? <div>UNABLE TO CREATE ACCOUNT AT THIS TIME :(</div> : <div></div>
+    const displayError = this.state.error ? (
+      <div>UNABLE TO CREATE ACCOUNT AT THIS TIME :(</div>
+    ) : (
+      <div />
+    );
     return (
       <form onSubmit={this.handleSubmit}>
-      { displayError }
-      <input
+        {displayError}
+        <input
           onChange={this.handleChange}
           type="text"
           name="name"
@@ -70,8 +78,12 @@ export class Signup extends Component {
   }
 }
 
+Signup.propTypes = {
+  logIn: PropTypes.func
+};
+
 export const mapDispatchToProps = dispatch => ({
-  logIn: user => dispatch(logIn(user)) 
-})
+  logIn: user => dispatch(logIn(user))
+});
 
 export default connect(null, mapDispatchToProps)(Signup);

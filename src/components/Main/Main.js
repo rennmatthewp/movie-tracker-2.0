@@ -2,37 +2,47 @@ import React from 'react';
 import CardContainer from '../CardContainer/CardContainer';
 import Signup from '../Signup/Signup';
 import Login from '../Login/Login';
-import Favorites from '../Favorites/Favorites'
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router';
-
+import PropTypes from 'prop-types';
 
 export const Main = props => {
   return (
     <main>
       <Switch>
-        <Route exact path="/" render={() => (
-          <CardContainer films={props.films} />
-          )} 
+        <Route
+          exact
+          path="/"
+          render={() => <CardContainer films={props.films} />}
         />
-        <Route path="/login" render={() => (
-          props.user.name ? (<Redirect to="/" />) : (<Login />)
-          )}
+        <Route
+          path="/login"
+          render={() => (props.user.name ? <Redirect to="/" /> : <Login />)}
         />
-         <Route path="/sign-up" render={() => (
-          props.user.name ? (<Redirect to="/" />) : (<Signup />)
-          )}
+        <Route
+          path="/sign-up"
+          render={() => (props.user.name ? <Redirect to="/" /> : <Signup />)}
         />
-        <Route path="/favorites" render={() => (
-          props.user.name ? 
-            (<CardContainer films={props.user.favorites} />) 
-            : (<Redirect to="/" />)
-          )} 
-        />     
-        </Switch>
+        <Route
+          path="/favorites"
+          render={() =>
+            props.user.name ? 
+              <CardContainer films={props.user.favorites} /> : 
+              <Redirect to="/" />
+          }
+        />
+      </Switch>
     </main>
-  ); 
+  );
+};
+
+Main.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.object),
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    favorites: PropTypes.arrayOf(PropTypes.object)
+  })
 };
 
 export const mapStateToProps = store => ({

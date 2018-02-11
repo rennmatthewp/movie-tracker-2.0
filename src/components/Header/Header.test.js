@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Header, mapStateToProps, mapDispatchToProps } from './Header';
 
-//can we test links?
-
 describe('Header', () => {
   let renderedHeader;
   let mockSignOut;
@@ -18,7 +16,6 @@ describe('Header', () => {
     expect(renderedHeader).toMatchSnapshot();
   });
 
-  //eslint-disable-next-line
   it('should MSTP, taking in the store and mapping our user to that container', () => {
     const mockStore = {
       user: {

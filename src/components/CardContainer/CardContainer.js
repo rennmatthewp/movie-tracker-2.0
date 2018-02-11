@@ -25,12 +25,14 @@ export class CardContainer extends Component {
     const filmInState = films.find(film => {
       return film.movie_id === parseInt(filmId);
     });
+    filmInState.favorited = 'favorited';
     addFavorite(filmInState);
     sendFavorite(user, filmInState);
   };
 
   handleRemoveFavorite = foundInUser => {
     const { user, removeFavorite } = this.props;
+    delete foundInUser.favorited;
     removeFavorite(foundInUser);
     deleteFavorite(user, foundInUser);
   };

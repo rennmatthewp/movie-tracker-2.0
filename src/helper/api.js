@@ -10,7 +10,7 @@ export const getFilms = async url => {
   return cleanFilms(results);
 };
 
-const cleanFilms = films => {
+export const cleanFilms = films => {
   return films.map(film => ({
     backdrop: film.backdrop_path,
     title: film.title,

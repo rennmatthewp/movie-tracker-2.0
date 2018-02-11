@@ -1,7 +1,5 @@
 import * as actions from './index';
 
-// add favorite, remove favorite
-
 describe('all actions', () => {
   it('should return a type of STORE_FILMS', () => {
     const films = [{}, {}, {}];
@@ -32,4 +30,24 @@ describe('all actions', () => {
 
     expect(actions.signOut(user)).toEqual(expected);
   });
+
+  it('should return a type of ADD_FAVORITE', () => {
+    const film = {};
+    const expected = {
+      type: 'ADD_FAVORITE',
+      film
+    };
+
+    expect(actions.addFavorite(film)).toEqual(expected);
+  })
+
+  it('should return a type of REMOVE_FAVORITE', () => {
+    const film = {};
+    const expected = {
+      type: 'REMOVE_FAVORITE',
+      film
+    };
+
+    expect(actions.removeFavorite(film)).toEqual(expected);
+  })
 });

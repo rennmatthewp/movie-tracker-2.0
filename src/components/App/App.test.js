@@ -27,16 +27,6 @@ describe('App', () => {
       { title: 'FBDO' },
       { title: 'FBDO' }
     ];
-    window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve({
-        ok: true,
-        status: 200,
-        json: () =>
-          Promise.resolve({
-            results: mockFilms
-          })
-      });
-    });
     api.getFilms = () => mockFilms;
     const mockHandleFetch = jest.fn();
     const renderedApp = await shallow(<App handleFetch={mockHandleFetch} />);

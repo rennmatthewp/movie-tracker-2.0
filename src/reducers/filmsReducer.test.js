@@ -10,8 +10,10 @@ describe('filmsReducer', () => {
 
   it('should return the new state with the new films', () => {
     const expected = [{}, {}, {}];
-    const currentState = []
+    const currentState = [];
 
-    expect(filmsReducer(currentState, actions.storeFilms(expected))).toEqual(expected);
-  })
+    expect(filmsReducer(currentState, actions.storeFilms(expected))).toEqual(
+      expected
+    );
+  });
 });

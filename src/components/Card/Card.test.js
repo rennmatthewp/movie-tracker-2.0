@@ -2,12 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Card } from './Card';
 
+/*eslint-disable*/
 //toggle favorite called on button click
 //toggle favorite calls determine warning if clicked is false
 //toggle favorite chnanges state if clicked is true
 //when detemrine warning is called and props.user.name does not exist, set state to true
 //when determine warning is called and props.user.name is true, calls handle favorite
 //state defaults to clicked: false on load
+/*eslint-enable*/
 
 describe('Card', () => {
   let renderedCard;

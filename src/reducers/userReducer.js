@@ -3,13 +3,14 @@ export const userReducer = (state = {}, action) => {
     case 'LOG_IN':
       return action.user;
     case 'SIGN_OUT':
-      return {}
+      return {};
     case 'ADD_FAVORITE':
-      return {...state, favorites: [...state.favorites, action.film]}
+      return { ...state, favorites: [...state.favorites, action.film] };
     case 'REMOVE_FAVORITE':
-      const newFavorites = 
-        state.favorites.filter( film => film.movie_id !== action.film.movie_id)
-      return {...state, favorites: [...newFavorites] }
+      const newFavorites = state.favorites.filter(
+        film => film.movie_id !== action.film.movie_id
+      );
+      return { ...state, favorites: [...newFavorites] };
     default:
       return state;
   }

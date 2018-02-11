@@ -75,7 +75,7 @@ export class Card extends Component {
 
 Card.propTypes = {
   film: PropTypes.shape({
-    movie_id: PropTypes.string,
+    movie_id: PropTypes.number,
     overview: PropTypes.string,
     release_date: PropTypes.string,
     poster_path: PropTypes.string,

@@ -16,10 +16,40 @@ describe('Login', () => {
     expect(renderedLogin).toMatchSnapshot();
   });
 
+  it('should set state with input values on a change event', () => {
+    const renderedLogin = shallow(<Login />)
+
+    const e1 = { 
+      target: {
+        name: 'email',
+        value: 'sickemail'
+      }
+    }
+    const expectedState = {
+      email: 'sickemail',
+      password: ''
+    }
+
+    renderedLogin.instance().handleChange(e1)
+    renderedLogin.update();
+
+    expect(renderedLogin.state()).toEqual(expectedState)
+  });
+
   it('should call handleSubmit on submit of the form', async () => {
     const mockLogin = jest.fn();
     const renderedLogin = shallow(<Login logIn={mockLogin}/>)
     const mockUser = {name: 'Jordan', email: 'email', password: 'password'}
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () =>
+          Promise.resolve({
+            results: mockUser
+          })
+      });
+    });
 
     api.getUserData = (url, state) => mockUser;
     const mockEvent = { preventDefault: () => {} }
@@ -27,11 +57,4 @@ describe('Login', () => {
     expect(api.getUserData()).toEqual({"email": "email", "name": "Jordan", "password": "password"});
     expect(mockLogin).toHaveBeenCalled();
   });
-
-  xit('should call handleInputChange onChange of the inputs', () => {});
-
-  xit('handleInputChange should set state with input values', () => {});
-
-
-  xit('should call handleSubmit on submit of the form', () => {});
 });

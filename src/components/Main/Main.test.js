@@ -113,7 +113,7 @@ describe('MSTP', () => {
         email: '123@gmail.com',
         password: 'password'
       },
-      films: [{}, {}, {}]the
+      films: [{}, {}, {}]
     };
     const mapped = mapStateToProps({ user: mockStore.user, films: mockStore.films });
     expect(mapped).toEqual(mockStore);

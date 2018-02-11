@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import { Main, mapStateToProps } from './Main.js';
-import { CardContainer } from '../CardContainer/CardContainer';
-import { Login } from '../Login/Login';
-//test MSTP
 
 describe('Main', () => {
   it('should match the snapshot', () => {
@@ -116,7 +113,7 @@ describe('MSTP', () => {
         email: '123@gmail.com',
         password: 'password'
       },
-      films: [{}, {}, {}]
+      films: [{}, {}, {}]the
     };
     const mapped = mapStateToProps({ user: mockStore.user, films: mockStore.films });
     expect(mapped).toEqual(mockStore);

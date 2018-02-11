@@ -26,7 +26,7 @@ export class Login extends Component {
       'http://localhost:3000/api/users',
       this.state
     );
-    user ? this.props.logIn(user) : alert('try again looser');
+    user ? this.props.logIn(user) : alert('username or password was not correct');
   };
 
   render() {
@@ -58,7 +58,7 @@ Login.propTypes = {
   logIn: PropTypes.func
 };
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   logIn: user => dispatch(logIn(user))
 });
 

@@ -2,6 +2,11 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Signup, mapDispatchToProps } from './Signup';
 
+//check that handle submit has been called on form submit
+//should call logIn when handleSubmit called
+//should reset state with an error when fetch errors
+//should also change snapshot with an error
+
 describe('Signup', () => {
   let renderedSignup;
   let mockLogIn = jest.fn();
@@ -21,7 +26,7 @@ describe('Signup', () => {
     expect(mockDispatch).toHaveBeenCalled()
   });
 
-  it('handleInputChange should set state with input values', () => {
+  it('handleChange should set state with input values', () => {
     renderedSignup = mount(<Signup logIn={mockLogIn}/>);
     let mockEvent = {
       target: {
@@ -40,7 +45,7 @@ describe('Signup', () => {
     expect(renderedSignup.state()).toEqual(expectedState);
   });
 
-  it('should call handleSubmit on submit of the form', () => {
+  it('should call fetch when handleSubmit called', () => {
     renderedSignup = shallow(<Signup logIn={mockLogIn}/>);
 
      window.fetch = jest.fn().mockImplementation(() => {

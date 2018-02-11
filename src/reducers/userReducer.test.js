@@ -1,6 +1,9 @@
 import { userReducer } from './userReducer';
 import * as actions from '../actions/';
 
+//test add favorite
+//test remove favorite
+
 describe('userReducer', () => {
   it('should default to returning an empty object as state', () => {
     const expected = {};

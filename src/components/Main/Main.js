@@ -2,7 +2,6 @@ import React from 'react';
 import CardContainer from '../CardContainer/CardContainer';
 import Signup from '../Signup/Signup';
 import Login from '../Login/Login';
-import Favorites from '../Favorites/Favorites'
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router';

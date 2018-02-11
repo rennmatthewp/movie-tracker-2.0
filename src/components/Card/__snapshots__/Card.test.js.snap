@@ -4,7 +4,7 @@ exports[`Card should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Unknown
+  Symbol(enzyme.__unrendered__): <Card
     film={
         Object {
             "date": "",
@@ -29,17 +29,17 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <img
-          alt="favorite this movie"
-          className="favorite"
-          onClick={undefined}
-          src="favorite.svg"
+        <button
+          className="favorite-img"
+          id={undefined}
+          onClick={[Function]}
 />,
         <img
           alt="movie-poster"
           className="poster"
-          src="https://image.tmdb.org/t/p/w500"
+          src="https://image.tmdb.org/t/p/w500undefined"
 />,
+        <div />,
         <div
           className="information"
 >
@@ -57,10 +57,22 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "alt": "favorite this movie",
-          "className": "favorite",
-          "onClick": undefined,
-          "src": "favorite.svg",
+          "className": "favorite-img",
+          "id": undefined,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "movie-poster",
+          "className": "poster",
+          "src": "https://image.tmdb.org/t/p/w500undefined",
         },
         "ref": null,
         "rendered": null,
@@ -70,14 +82,10 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
-        "props": Object {
-          "alt": "movie-poster",
-          "className": "poster",
-          "src": "https://image.tmdb.org/t/p/w500",
-        },
+        "props": Object {},
         "ref": null,
         "rendered": null,
-        "type": "img",
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -109,10 +117,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "",
+              "children": undefined,
             },
             "ref": null,
-            "rendered": "",
+            "rendered": null,
             "type": "h3",
           },
           Object {
@@ -139,17 +147,17 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <img
-            alt="favorite this movie"
-            className="favorite"
-            onClick={undefined}
-            src="favorite.svg"
+          <button
+            className="favorite-img"
+            id={undefined}
+            onClick={[Function]}
 />,
           <img
             alt="movie-poster"
             className="poster"
-            src="https://image.tmdb.org/t/p/w500"
+            src="https://image.tmdb.org/t/p/w500undefined"
 />,
+          <div />,
           <div
             className="information"
 >
@@ -167,10 +175,22 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "alt": "favorite this movie",
-            "className": "favorite",
-            "onClick": undefined,
-            "src": "favorite.svg",
+            "className": "favorite-img",
+            "id": undefined,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "movie-poster",
+            "className": "poster",
+            "src": "https://image.tmdb.org/t/p/w500undefined",
           },
           "ref": null,
           "rendered": null,
@@ -180,14 +200,10 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
-          "props": Object {
-            "alt": "movie-poster",
-            "className": "poster",
-            "src": "https://image.tmdb.org/t/p/w500",
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "img",
+          "type": "div",
         },
         Object {
           "instance": null,
@@ -219,10 +235,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "",
+                "children": undefined,
               },
               "ref": null,
-              "rendered": "",
+              "rendered": null,
               "type": "h3",
             },
             Object {

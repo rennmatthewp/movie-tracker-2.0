@@ -1,9 +1,18 @@
 /*eslint-disable camelcase, id-blacklist*/
 export const fetchApi = async url => {
-  const initalFetch = await fetch(url);
-  const resolvedPromise = await initalFetch.json();
-  return resolvedPromise;
-};
+  try {
+    const initialFetch = await fetch(url);
+  if(initialFetch.status <= 200) {
+    const resolvedPromise = await initialFetch.json();
+    return resolvedPromise;
+  } 
+  else if (initialFetch.status > 200) {
+      throw new Error('Bad response stats');
+    }
+  } catch (error) {
+    return error;
+  }
+}
 
 export const getFilms = async url => {
   const { results } = await fetchApi(url);
@@ -22,10 +31,6 @@ export const cleanFilms = films => {
   }));
 };
 
-//maybe should split into three functions
-//getUserData handles
-//get user func
-//and gets fav func?
 export const getUserData = async (url, state) => {
   const { data } = await fetchApi(url);
   const { email, password } = state;
@@ -83,6 +88,6 @@ export const postFetch = async (url, itemToStore, method) => {
       throw new Error('Bad response stats');
     }
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };

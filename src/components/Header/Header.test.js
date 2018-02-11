@@ -16,7 +16,6 @@ describe('Header', () => {
     expect(renderedHeader).toMatchSnapshot();
   });
 
-  //eslint-disable-next-line
   it('should MSTP, taking in the store and mapping our user to that container', () => {
     const mockStore = {
       user: {

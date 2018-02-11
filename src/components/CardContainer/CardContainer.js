@@ -13,9 +13,11 @@ export class CardContainer extends Component {
       return film.movie_id === parseInt(filmId);
     });
 
-    foundInUser
-      ? this.handleRemoveFavorite(foundInUser)
-      : this.handleAddFavorite(filmId);
+    if (foundInUser) {
+      this.handleRemoveFavorite(foundInUser)
+    } else {
+      this.handleAddFavorite(filmId);
+    }
   };
 
   handleAddFavorite = filmId => {

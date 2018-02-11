@@ -69,7 +69,6 @@ ShallowWrapper {
                     </Link>
                     <Link
                               className="user-link"
-                              id="sign-out"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -184,7 +183,6 @@ ShallowWrapper {
               </Link>
               <Link
                             className="user-link"
-                            id="sign-out"
                             onClick={[Function]}
                             replace={false}
                             to="/"
@@ -230,7 +228,6 @@ ShallowWrapper {
 </Link>,
                 <Link
                   className="user-link"
-                  id="sign-out"
                   onClick={[Function]}
                   replace={false}
                   to="/"
@@ -292,7 +289,6 @@ ShallowWrapper {
                 "props": Object {
                   "children": "Sign Out",
                   "className": "user-link",
-                  "id": "sign-out",
                   "onClick": [Function],
                   "replace": false,
                   "to": "/",
@@ -361,7 +357,6 @@ ShallowWrapper {
                         </Link>
                         <Link
                                     className="user-link"
-                                    id="sign-out"
                                     onClick={[Function]}
                                     replace={false}
                                     to="/"
@@ -476,7 +471,6 @@ ShallowWrapper {
                 </Link>
                 <Link
                                 className="user-link"
-                                id="sign-out"
                                 onClick={[Function]}
                                 replace={false}
                                 to="/"
@@ -522,7 +516,6 @@ ShallowWrapper {
 </Link>,
                   <Link
                     className="user-link"
-                    id="sign-out"
                     onClick={[Function]}
                     replace={false}
                     to="/"
@@ -584,7 +577,6 @@ ShallowWrapper {
                   "props": Object {
                     "children": "Sign Out",
                     "className": "user-link",
-                    "id": "sign-out",
                     "onClick": [Function],
                     "replace": false,
                     "to": "/",

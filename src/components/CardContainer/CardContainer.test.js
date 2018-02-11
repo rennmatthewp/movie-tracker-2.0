@@ -1,6 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CardContainer, mapStateToProps } from './CardContainer';
+import {
+  CardContainer,
+  mapStateToProps,
+  mapDispatchToProps
+} from './CardContainer';
 
 /*eslint-disable*/
 //test MDTP
@@ -27,5 +31,31 @@ describe('CardContainer', () => {
     const mapped = mapStateToProps({ user: mockStoreUser });
 
     expect(mapped.user).toEqual(mockStoreUser);
+  });
+
+  it('should call the dispatch fn when using a fn from MDTP', () => {
+    const mockDispatch = jest.fn();
+    const mapped = mapDispatchToProps(mockDispatch);
+    const mockFilm = { title: 'The Big Lebowski' };
+
+    mapped.addFavorite(mockFilm);
+    expect(mockDispatch).toHaveBeenCalled();
+
+    mapped.removeFavorite(mockFilm);
+    expect(mockDispatch).toHaveBeenCalled();
+  });
+
+  describe('handleFavorite', () => {
+    xit('should call handleAddFav if film is not in user favorites', () => {
+      const mockFavorites = [{movie_id: 0}, {id: 1}, {id: 2}];
+      const mockUser = { favorites: mockFavorites };
+      const mockAddFav = jest.fn()
+      const mockFilms = [{}, {}, {}];
+      
+      const renderedCardContainer = shallow(<CardContainer user={mockUser} films={mockFilms} />);
+
+      renderedCardContainer.instance().handleFavorite(0);
+      expect(mockAddFav).toHaveBeenCalled();
+    });
   });
 });

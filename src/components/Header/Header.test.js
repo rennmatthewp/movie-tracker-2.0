@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Header, mapStateToProps, mapDispatchToProps } from './Header';
 
+//can we test links?
+
 describe('Header', () => {
   let renderedHeader;
   let mockSignOut;
@@ -38,7 +40,7 @@ describe('Header', () => {
   });
 
   it('should call signOut on click of our button', () => {
-    renderedHeader.find('button').simulate('click');
+    renderedHeader.find('#sign-out').simulate('click');
 
     expect(mockSignOut).toHaveBeenCalled();
   });

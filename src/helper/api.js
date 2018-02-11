@@ -21,6 +21,10 @@ const cleanFilms = films => {
   }));
 };
 
+//maybe should split into three functions
+//getUserData handles
+//get user func
+//and gets fav func?
 export const getUserData = async (url, state) => {
   const { data } = await fetchApi(url)
   const { email, password } = state;

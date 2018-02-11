@@ -1,5 +1,7 @@
 import * as actions from "./index";
 
+// add favorite, remove favorite
+
 describe('all actions', () => {
   it('should return a type of STORE_FILMS', () => {
     const films = [{}, {}, {}];

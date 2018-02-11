@@ -44,18 +44,39 @@ ShallowWrapper {
                     </span>
           </h1>
 </Link>,
-        <div>
-          <h2>
-                    Hello, 
-                    person
-                     
-          </h2>
-          <button
-                    onClick={[Function]}
-                    type="submit"
+        <div
+          className="menu-mobile"
+>
+          <i
+                    className="fas fa-bars"
+                    id="menu"
+          />
+          <div
+                    className="user-signed-in"
           >
-                     Sign Out 
-          </button>
+                    <h2>
+                              Hello, 
+                              <span>
+                                        person
+                              </span>
+                    </h2>
+                    <Link
+                              className="user-link"
+                              replace={false}
+                              to="/favorites"
+                    >
+                              Favorites
+                    </Link>
+                    <Link
+                              className="user-link"
+                              id="sign-out"
+                              onClick={[Function]}
+                              replace={false}
+                              to="/"
+                    >
+                              Sign Out
+                    </Link>
+          </div>
 </div>,
       ],
     },
@@ -141,18 +162,38 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <h2>
-              Hello, 
-              person
-               
-</h2>,
-            <button
-              onClick={[Function]}
-              type="submit"
+            <i
+              className="fas fa-bars"
+              id="menu"
+/>,
+            <div
+              className="user-signed-in"
 >
-               Sign Out 
-</button>,
+              <h2>
+                            Hello, 
+                            <span>
+                                          person
+                            </span>
+              </h2>
+              <Link
+                            className="user-link"
+                            replace={false}
+                            to="/favorites"
+              >
+                            Favorites
+              </Link>
+              <Link
+                            className="user-link"
+                            id="sign-out"
+                            onClick={[Function]}
+                            replace={false}
+                            to="/"
+              >
+                            Sign Out
+              </Link>
+</div>,
           ],
+          "className": "menu-mobile",
         },
         "ref": null,
         "rendered": Array [
@@ -161,32 +202,107 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                "Hello, ",
-                "person",
-                " ",
-              ],
+              "className": "fas fa-bars",
+              "id": "menu",
             },
             "ref": null,
-            "rendered": Array [
-              "Hello, ",
-              "person",
-              " ",
-            ],
-            "type": "h2",
+            "rendered": null,
+            "type": "i",
           },
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": " Sign Out ",
-              "onClick": [Function],
-              "type": "submit",
+              "children": Array [
+                <h2>
+                  Hello, 
+                  <span>
+                                    person
+                  </span>
+</h2>,
+                <Link
+                  className="user-link"
+                  replace={false}
+                  to="/favorites"
+>
+                  Favorites
+</Link>,
+                <Link
+                  className="user-link"
+                  id="sign-out"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/"
+>
+                  Sign Out
+</Link>,
+              ],
+              "className": "user-signed-in",
             },
             "ref": null,
-            "rendered": " Sign Out ",
-            "type": "button",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Hello, ",
+                    <span>
+                      person
+</span>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Hello, ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "person",
+                    },
+                    "ref": null,
+                    "rendered": "person",
+                    "type": "span",
+                  },
+                ],
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Favorites",
+                  "className": "user-link",
+                  "replace": false,
+                  "to": "/favorites",
+                },
+                "ref": null,
+                "rendered": "Favorites",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Sign Out",
+                  "className": "user-link",
+                  "id": "sign-out",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/",
+                },
+                "ref": null,
+                "rendered": "Sign Out",
+                "type": [Function],
+              },
+            ],
+            "type": "div",
           },
         ],
         "type": "div",
@@ -220,18 +336,39 @@ ShallowWrapper {
                         </span>
             </h1>
 </Link>,
-          <div>
-            <h2>
-                        Hello, 
-                        person
-                         
-            </h2>
-            <button
-                        onClick={[Function]}
-                        type="submit"
+          <div
+            className="menu-mobile"
+>
+            <i
+                        className="fas fa-bars"
+                        id="menu"
+            />
+            <div
+                        className="user-signed-in"
             >
-                         Sign Out 
-            </button>
+                        <h2>
+                                    Hello, 
+                                    <span>
+                                                person
+                                    </span>
+                        </h2>
+                        <Link
+                                    className="user-link"
+                                    replace={false}
+                                    to="/favorites"
+                        >
+                                    Favorites
+                        </Link>
+                        <Link
+                                    className="user-link"
+                                    id="sign-out"
+                                    onClick={[Function]}
+                                    replace={false}
+                                    to="/"
+                        >
+                                    Sign Out
+                        </Link>
+            </div>
 </div>,
         ],
       },
@@ -317,18 +454,38 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <h2>
-                Hello, 
-                person
-                 
-</h2>,
-              <button
-                onClick={[Function]}
-                type="submit"
+              <i
+                className="fas fa-bars"
+                id="menu"
+/>,
+              <div
+                className="user-signed-in"
 >
-                 Sign Out 
-</button>,
+                <h2>
+                                Hello, 
+                                <span>
+                                                person
+                                </span>
+                </h2>
+                <Link
+                                className="user-link"
+                                replace={false}
+                                to="/favorites"
+                >
+                                Favorites
+                </Link>
+                <Link
+                                className="user-link"
+                                id="sign-out"
+                                onClick={[Function]}
+                                replace={false}
+                                to="/"
+                >
+                                Sign Out
+                </Link>
+</div>,
             ],
+            "className": "menu-mobile",
           },
           "ref": null,
           "rendered": Array [
@@ -337,32 +494,107 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": Array [
-                  "Hello, ",
-                  "person",
-                  " ",
-                ],
+                "className": "fas fa-bars",
+                "id": "menu",
               },
               "ref": null,
-              "rendered": Array [
-                "Hello, ",
-                "person",
-                " ",
-              ],
-              "type": "h2",
+              "rendered": null,
+              "type": "i",
             },
             Object {
               "instance": null,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": " Sign Out ",
-                "onClick": [Function],
-                "type": "submit",
+                "children": Array [
+                  <h2>
+                    Hello, 
+                    <span>
+                                        person
+                    </span>
+</h2>,
+                  <Link
+                    className="user-link"
+                    replace={false}
+                    to="/favorites"
+>
+                    Favorites
+</Link>,
+                  <Link
+                    className="user-link"
+                    id="sign-out"
+                    onClick={[Function]}
+                    replace={false}
+                    to="/"
+>
+                    Sign Out
+</Link>,
+                ],
+                "className": "user-signed-in",
               },
               "ref": null,
-              "rendered": " Sign Out ",
-              "type": "button",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Hello, ",
+                      <span>
+                        person
+</span>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Hello, ",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "person",
+                      },
+                      "ref": null,
+                      "rendered": "person",
+                      "type": "span",
+                    },
+                  ],
+                  "type": "h2",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Favorites",
+                    "className": "user-link",
+                    "replace": false,
+                    "to": "/favorites",
+                  },
+                  "ref": null,
+                  "rendered": "Favorites",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Sign Out",
+                    "className": "user-link",
+                    "id": "sign-out",
+                    "onClick": [Function],
+                    "replace": false,
+                    "to": "/",
+                  },
+                  "ref": null,
+                  "rendered": "Sign Out",
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
             },
           ],
           "type": "div",

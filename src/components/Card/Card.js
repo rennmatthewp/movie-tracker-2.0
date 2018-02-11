@@ -41,6 +41,8 @@ export class Card extends Component {
       <div />
     );
 
+    const favorited = this.props.film.favorited;
+
     const {
       movie_id,
       title,
@@ -50,7 +52,7 @@ export class Card extends Component {
     } = this.props.film;
 
     return (
-      <article className="Card">
+      <article className="Card" id={ favorited }>
         <button
           className="favorite-img"
           id={movie_id}

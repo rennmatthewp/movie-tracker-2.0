@@ -1,8 +1,9 @@
-/* eslint-disable no-undef, no-unused-vars */
+/* eslint-disable */
 import React from 'react';
 import { App, mapDispatchToProps } from './App';
 import { shallow } from 'enzyme';
 import * as api from '../../helper/api';
+import { mockData } from '../../mockData';
 
 describe('App', () => {
   it('should match the snapshot', () => {
@@ -20,14 +21,7 @@ describe('App', () => {
   });
 
   it('should call handleFetch in CDM', async () => {
-    const mockFilms = [
-      { title: 'FBDO' },
-      { title: 'FBDO' },
-      { title: 'FBDO' },
-      { title: 'FBDO' },
-      { title: 'FBDO' }
-    ];
-    api.getFilms = () => mockFilms;
+    api.getFilms = () => mockData.mockFilmsArray;
     const mockHandleFetch = jest.fn();
     const renderedApp = await shallow(<App handleFetch={mockHandleFetch} />);
 

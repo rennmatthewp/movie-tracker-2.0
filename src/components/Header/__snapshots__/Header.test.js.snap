@@ -8,7 +8,9 @@ ShallowWrapper {
     signOut={[Function]}
     user={
         Object {
-            "name": "person",
+            "email": "tink@gmail.com",
+            "name": "TinkerBell",
+            "password": "password",
           }
     }
 />,
@@ -57,7 +59,7 @@ ShallowWrapper {
                     <h2>
                               Hello, 
                               <span>
-                                        person
+                                        TinkerBell
                               </span>
                     </h2>
                     <Link
@@ -172,7 +174,7 @@ ShallowWrapper {
               <h2>
                             Hello, 
                             <span>
-                                          person
+                                          TinkerBell
                             </span>
               </h2>
               <Link
@@ -218,7 +220,7 @@ ShallowWrapper {
                 <h2>
                   Hello, 
                   <span>
-                                    person
+                                    TinkerBell
                   </span>
 </h2>,
                 <Link
@@ -250,7 +252,7 @@ ShallowWrapper {
                   "children": Array [
                     "Hello, ",
                     <span>
-                      person
+                      TinkerBell
 </span>,
                   ],
                 },
@@ -262,10 +264,10 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "person",
+                      "children": "TinkerBell",
                     },
                     "ref": null,
-                    "rendered": "person",
+                    "rendered": "TinkerBell",
                     "type": "span",
                   },
                 ],
@@ -349,7 +351,7 @@ ShallowWrapper {
                         <h2>
                                     Hello, 
                                     <span>
-                                                person
+                                                TinkerBell
                                     </span>
                         </h2>
                         <Link
@@ -464,7 +466,7 @@ ShallowWrapper {
                 <h2>
                                 Hello, 
                                 <span>
-                                                person
+                                                TinkerBell
                                 </span>
                 </h2>
                 <Link
@@ -510,7 +512,7 @@ ShallowWrapper {
                   <h2>
                     Hello, 
                     <span>
-                                        person
+                                        TinkerBell
                     </span>
 </h2>,
                   <Link
@@ -542,7 +544,7 @@ ShallowWrapper {
                     "children": Array [
                       "Hello, ",
                       <span>
-                        person
+                        TinkerBell
 </span>,
                     ],
                   },
@@ -554,10 +556,10 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "person",
+                        "children": "TinkerBell",
                       },
                       "ref": null,
-                      "rendered": "person",
+                      "rendered": "TinkerBell",
                       "type": "span",
                     },
                   ],

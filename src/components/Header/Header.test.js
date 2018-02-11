@@ -1,15 +1,21 @@
+/* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Header, mapStateToProps, mapDispatchToProps } from './Header';
+import { mockData } from '../../mockData';
 
 describe('Header', () => {
   let renderedHeader;
   let mockSignOut;
 
   beforeEach(() => {
-    const user = { name: 'person' };
     mockSignOut = jest.fn();
-    renderedHeader = shallow(<Header user={user} signOut={mockSignOut} />);
+    renderedHeader = shallow(
+      <Header 
+        user={mockData.mockUser} 
+        signOut={mockSignOut} 
+      />
+    );
   });
 
   it('should match the snapshot', () => {
@@ -17,15 +23,9 @@ describe('Header', () => {
   });
 
   it('should MSTP, taking in the store and mapping our user to that container', () => {
-    const mockStore = {
-      user: {
-        name: 'Matt',
-        email: '123@gmail.com',
-        password: 'password'
-      }
-    };
-    const mappedStore = mapStateToProps(mockStore);
-    expect(mappedStore.user).toEqual(mockStore.user);
+
+    const mappedStore = mapStateToProps({ user: mockData.mockUser });
+    expect(mappedStore.user).toEqual(mockData.mockUser);
   });
 
   it('should call the dispach fn when using a fn from mdtp', () => {

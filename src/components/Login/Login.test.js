@@ -1,7 +1,9 @@
+/* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Login, mapDispatchToProps } from './Login';
 import * as api from '../../helper/api';
+import { mockData } from '../../mockData';
 
 describe('Login', () => {
   it('should match the snapshot', () => {
@@ -13,52 +15,34 @@ describe('Login', () => {
   it('should start with a default state of empty strings for email and password', () => {
     const renderedLogin = shallow(<Login />);
 
-    expect(renderedLogin.state()).toEqual(
-      {
-        email: '',
-        password: ''
-      }
-    )
-  })
+    expect(renderedLogin.state()).toEqual(mockData.loginDefaultState)
+  });
 
   it('should set state with input values on a change event', () => {
     const renderedLogin = shallow(<Login />)
 
-    const e1 = { 
-      target: {
-        name: 'email',
-        value: 'sickemail'
-      }
-    }
-    const expectedState = {
-      email: 'sickemail',
-      password: ''
-    }
-
-    renderedLogin.instance().handleChange(e1)
+    renderedLogin.instance().handleChange(mockData.mockEvent)
     renderedLogin.update();
 
-    expect(renderedLogin.state()).toEqual(expectedState)
+    expect(renderedLogin.state()).toEqual(mockData.mockLoginExpectedState)
   });
 
   it('should call handleSubmit on submit of the form', async () => {
     const mockLogin = jest.fn();
     const renderedLogin = shallow(<Login logIn={mockLogin}/>)
-    const mockUser = {name: 'Jordan', email: 'email', password: 'password'}
 
-    api.getUserData = (url, state) => mockUser;
+    api.getUserData = (url, state) => mockData.mockUser;
     const mockEvent = { preventDefault: () => {} }
     await renderedLogin.instance().handleSubmit(mockEvent);
-    expect(api.getUserData()).toEqual({"email": "email", "name": "Jordan", "password": "password"});
+    expect(api.getUserData()).toEqual(mockData.mockUser);
     expect(mockLogin).toHaveBeenCalled();
   });
 
   it('should call the dispatch fn when using a fn from MDTP', () => {
     const mockDispatch = jest.fn();
     const mapped = mapDispatchToProps(mockDispatch);
-    const mockUser = {name: 'Jordan', email: 'email', password: 'password'};
 
-    mapped.logIn(mockUser);
+    mapped.logIn(mockData.mockUser);
     expect(mockDispatch).toHaveBeenCalled();
   })
 });

@@ -7,12 +7,13 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Card
     film={
         Object {
-            "date": "timeless",
-            "id": 1,
-            "overview": "Its dark out and were wearing sunglasses",
-            "poster": "poster_path",
-            "rating": 10,
-            "title": "The Blues Brothers",
+            "backdrop": "url",
+            "movie_id": 20,
+            "overview": "Best documentary ever",
+            "poster_path": "url",
+            "release_date": "March 5, 2006",
+            "title": "Planet Earth",
+            "vote_average": "1000%",
           }
     }
     handleFavorite={[Function]}
@@ -33,24 +34,26 @@ ShallowWrapper {
       "children": Array [
         <button
           className="favorite-img"
-          id={undefined}
+          id={20}
           onClick={[Function]}
 />,
         <img
           alt="movie-poster"
           className="poster"
-          src="https://image.tmdb.org/t/p/w500undefined"
+          src="https://image.tmdb.org/t/p/w500url"
 />,
         <div />,
         <div
           className="information"
 >
           <h2>
-                    The Blues Brothers
+                    Planet Earth
           </h2>
-          <h3 />
+          <h3>
+                    March 5, 2006
+          </h3>
           <p>
-                    Its dark out and were wearing sunglasses
+                    Best documentary ever
           </p>
 </div>,
       ],
@@ -65,7 +68,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "className": "favorite-img",
-          "id": undefined,
+          "id": 20,
           "onClick": [Function],
         },
         "ref": null,
@@ -79,7 +82,7 @@ ShallowWrapper {
         "props": Object {
           "alt": "movie-poster",
           "className": "poster",
-          "src": "https://image.tmdb.org/t/p/w500undefined",
+          "src": "https://image.tmdb.org/t/p/w500url",
         },
         "ref": null,
         "rendered": null,
@@ -101,11 +104,13 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <h2>
-              The Blues Brothers
+              Planet Earth
 </h2>,
-            <h3 />,
+            <h3>
+              March 5, 2006
+</h3>,
             <p>
-              Its dark out and were wearing sunglasses
+              Best documentary ever
 </p>,
           ],
           "className": "information",
@@ -117,10 +122,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "The Blues Brothers",
+              "children": "Planet Earth",
             },
             "ref": null,
-            "rendered": "The Blues Brothers",
+            "rendered": "Planet Earth",
             "type": "h2",
           },
           Object {
@@ -128,10 +133,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "March 5, 2006",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "March 5, 2006",
             "type": "h3",
           },
           Object {
@@ -139,10 +144,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Its dark out and were wearing sunglasses",
+              "children": "Best documentary ever",
             },
             "ref": null,
-            "rendered": "Its dark out and were wearing sunglasses",
+            "rendered": "Best documentary ever",
             "type": "p",
           },
         ],
@@ -160,24 +165,26 @@ ShallowWrapper {
         "children": Array [
           <button
             className="favorite-img"
-            id={undefined}
+            id={20}
             onClick={[Function]}
 />,
           <img
             alt="movie-poster"
             className="poster"
-            src="https://image.tmdb.org/t/p/w500undefined"
+            src="https://image.tmdb.org/t/p/w500url"
 />,
           <div />,
           <div
             className="information"
 >
             <h2>
-                        The Blues Brothers
+                        Planet Earth
             </h2>
-            <h3 />
+            <h3>
+                        March 5, 2006
+            </h3>
             <p>
-                        Its dark out and were wearing sunglasses
+                        Best documentary ever
             </p>
 </div>,
         ],
@@ -192,7 +199,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "className": "favorite-img",
-            "id": undefined,
+            "id": 20,
             "onClick": [Function],
           },
           "ref": null,
@@ -206,7 +213,7 @@ ShallowWrapper {
           "props": Object {
             "alt": "movie-poster",
             "className": "poster",
-            "src": "https://image.tmdb.org/t/p/w500undefined",
+            "src": "https://image.tmdb.org/t/p/w500url",
           },
           "ref": null,
           "rendered": null,
@@ -228,11 +235,13 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <h2>
-                The Blues Brothers
+                Planet Earth
 </h2>,
-              <h3 />,
+              <h3>
+                March 5, 2006
+</h3>,
               <p>
-                Its dark out and were wearing sunglasses
+                Best documentary ever
 </p>,
             ],
             "className": "information",
@@ -244,10 +253,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "The Blues Brothers",
+                "children": "Planet Earth",
               },
               "ref": null,
-              "rendered": "The Blues Brothers",
+              "rendered": "Planet Earth",
               "type": "h2",
             },
             Object {
@@ -255,10 +264,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": undefined,
+                "children": "March 5, 2006",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "March 5, 2006",
               "type": "h3",
             },
             Object {
@@ -266,10 +275,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Its dark out and were wearing sunglasses",
+                "children": "Best documentary ever",
               },
               "ref": null,
-              "rendered": "Its dark out and were wearing sunglasses",
+              "rendered": "Best documentary ever",
               "type": "p",
             },
           ],
@@ -296,21 +305,21 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Card
     film={
         Object {
-            "date": "timeless",
-            "id": 1,
-            "overview": "Its dark out and were wearing sunglasses",
-            "poster": "poster_path",
-            "rating": 10,
-            "title": "The Blues Brothers",
+            "backdrop": "url",
+            "movie_id": 20,
+            "overview": "Best documentary ever",
+            "poster_path": "url",
+            "release_date": "March 5, 2006",
+            "title": "Planet Earth",
+            "vote_average": "1000%",
           }
     }
     handleFavorite={[Function]}
     user={
         Object {
-            "email": "Blues@bluesbros.com",
-            "id": 2,
-            "name": "Jake",
-            "password": "X",
+            "email": "tink@gmail.com",
+            "name": "TinkerBell",
+            "password": "password",
           }
     }
 />,
@@ -329,24 +338,26 @@ ShallowWrapper {
       "children": Array [
         <button
           className="favorite-img"
-          id={undefined}
+          id={20}
           onClick={[Function]}
 />,
         <img
           alt="movie-poster"
           className="poster"
-          src="https://image.tmdb.org/t/p/w500undefined"
+          src="https://image.tmdb.org/t/p/w500url"
 />,
         <div />,
         <div
           className="information"
 >
           <h2>
-                    The Blues Brothers
+                    Planet Earth
           </h2>
-          <h3 />
+          <h3>
+                    March 5, 2006
+          </h3>
           <p>
-                    Its dark out and were wearing sunglasses
+                    Best documentary ever
           </p>
 </div>,
       ],
@@ -361,7 +372,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "className": "favorite-img",
-          "id": undefined,
+          "id": 20,
           "onClick": [Function],
         },
         "ref": null,
@@ -375,7 +386,7 @@ ShallowWrapper {
         "props": Object {
           "alt": "movie-poster",
           "className": "poster",
-          "src": "https://image.tmdb.org/t/p/w500undefined",
+          "src": "https://image.tmdb.org/t/p/w500url",
         },
         "ref": null,
         "rendered": null,
@@ -397,11 +408,13 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <h2>
-              The Blues Brothers
+              Planet Earth
 </h2>,
-            <h3 />,
+            <h3>
+              March 5, 2006
+</h3>,
             <p>
-              Its dark out and were wearing sunglasses
+              Best documentary ever
 </p>,
           ],
           "className": "information",
@@ -413,10 +426,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "The Blues Brothers",
+              "children": "Planet Earth",
             },
             "ref": null,
-            "rendered": "The Blues Brothers",
+            "rendered": "Planet Earth",
             "type": "h2",
           },
           Object {
@@ -424,10 +437,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "March 5, 2006",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "March 5, 2006",
             "type": "h3",
           },
           Object {
@@ -435,10 +448,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Its dark out and were wearing sunglasses",
+              "children": "Best documentary ever",
             },
             "ref": null,
-            "rendered": "Its dark out and were wearing sunglasses",
+            "rendered": "Best documentary ever",
             "type": "p",
           },
         ],
@@ -456,24 +469,26 @@ ShallowWrapper {
         "children": Array [
           <button
             className="favorite-img"
-            id={undefined}
+            id={20}
             onClick={[Function]}
 />,
           <img
             alt="movie-poster"
             className="poster"
-            src="https://image.tmdb.org/t/p/w500undefined"
+            src="https://image.tmdb.org/t/p/w500url"
 />,
           <div />,
           <div
             className="information"
 >
             <h2>
-                        The Blues Brothers
+                        Planet Earth
             </h2>
-            <h3 />
+            <h3>
+                        March 5, 2006
+            </h3>
             <p>
-                        Its dark out and were wearing sunglasses
+                        Best documentary ever
             </p>
 </div>,
         ],
@@ -488,7 +503,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "className": "favorite-img",
-            "id": undefined,
+            "id": 20,
             "onClick": [Function],
           },
           "ref": null,
@@ -502,7 +517,7 @@ ShallowWrapper {
           "props": Object {
             "alt": "movie-poster",
             "className": "poster",
-            "src": "https://image.tmdb.org/t/p/w500undefined",
+            "src": "https://image.tmdb.org/t/p/w500url",
           },
           "ref": null,
           "rendered": null,
@@ -524,11 +539,13 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <h2>
-                The Blues Brothers
+                Planet Earth
 </h2>,
-              <h3 />,
+              <h3>
+                March 5, 2006
+</h3>,
               <p>
-                Its dark out and were wearing sunglasses
+                Best documentary ever
 </p>,
             ],
             "className": "information",
@@ -540,10 +557,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "The Blues Brothers",
+                "children": "Planet Earth",
               },
               "ref": null,
-              "rendered": "The Blues Brothers",
+              "rendered": "Planet Earth",
               "type": "h2",
             },
             Object {
@@ -551,10 +568,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": undefined,
+                "children": "March 5, 2006",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "March 5, 2006",
               "type": "h3",
             },
             Object {
@@ -562,10 +579,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Its dark out and were wearing sunglasses",
+                "children": "Best documentary ever",
               },
               "ref": null,
-              "rendered": "Its dark out and were wearing sunglasses",
+              "rendered": "Best documentary ever",
               "type": "p",
             },
           ],

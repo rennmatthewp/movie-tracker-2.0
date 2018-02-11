@@ -1,31 +1,35 @@
+/* eslint-disable */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import { Main, mapStateToProps } from './Main.js';
+import { mockData } from '../../mockData';
 
 describe('Main', () => {
+
   it('should match the snapshot', () => {
-    const renderedMain = shallow(
+    const renderedMain = shallow(    
       <Main       
-        films={ [{}, {}, {}] }
-        user={ { name: 'TANIS', favorites: [{}, {}] } }
+        films={ mockData.mockFilmsArray }
+        user={ mockData.mockUser }
       />
     );
     expect(renderedMain).toMatchSnapshot();
   });
 });
 
-
 describe('Router', ()=> {
+  const main =
+    <Main       
+      films={ mockData.mockFilmsArray }
+      user={ mockData.mockUser }
+    />
 
   it('should display home when the exact path is /', () => {
     const renderedMain = shallow(
       <MemoryRouter initialEntries={ [ '/' ] }>
-        <Main 
-          films={ [{}, {}, {}] }
-          user={ { name: 'TANIS', favorites: [{}, {}] } }
-        />
+        { main }
       </MemoryRouter>
     );
     expect(renderedMain).toMatchSnapshot();
@@ -34,10 +38,7 @@ describe('Router', ()=> {
   it('should display login when there is a user and the path is /login', () => {
     const renderedMain = shallow(
       <MemoryRouter initialEntries={ [ '/login' ] }>
-        <Main 
-          films={ [{}, {}, {}] }
-          user={ { name: 'TANIS', favorites: [{}, {}] } }
-        />
+        { main }
       </MemoryRouter>
     );
     expect(renderedMain).toMatchSnapshot();
@@ -47,7 +48,7 @@ describe('Router', ()=> {
     const renderedMain = shallow(
       <MemoryRouter initialEntries={ [ '/login' ] }>
         <Main 
-          films={ [{}, {}, {}] }
+          films={ mockData.mockFilmsArray }
           user={ {} }
         />
       </MemoryRouter>
@@ -58,10 +59,7 @@ describe('Router', ()=> {
   it('should display sign-up when there is a user and the path is /sign-up', () => {
     const renderedMain = shallow(
       <MemoryRouter initialEntries={ [ '/sign-up' ] }>
-        <Main 
-          films={ [{}, {}, {}] }
-          user={ { name: 'TANIS', favorites: [{}, {}] } }
-        />
+        { main }
       </MemoryRouter>
     );
     expect(renderedMain).toMatchSnapshot();
@@ -71,7 +69,7 @@ describe('Router', ()=> {
     const renderedMain = shallow(
       <MemoryRouter initialEntries={ [ '/sign-up' ] }>
         <Main 
-          films={ [{}, {}, {}] }
+          films={ mockData.mockFilmsArray }
           user={ {} }
         />
       </MemoryRouter>
@@ -82,10 +80,7 @@ describe('Router', ()=> {
   it('should display sign-up when there is a user and the path is /sign-up', () => {
     const renderedMain = shallow(
       <MemoryRouter initialEntries={ [ '/favorites' ] }>
-        <Main 
-          films={ [{}, {}, {}] }
-          user={ { name: 'TANIS', favorites: [{}, {}] } }
-        />
+        { main }
       </MemoryRouter>
     );
     expect(renderedMain).toMatchSnapshot();
@@ -95,7 +90,7 @@ describe('Router', ()=> {
     const renderedMain = shallow(
       <MemoryRouter initialEntries={ [ '/favorites' ] }>
         <Main 
-          films={ [{}, {}, {}] }
+          films={ mockData.mockFilmsArray }
           user={ {} }
         />
       </MemoryRouter>
@@ -104,16 +99,12 @@ describe('Router', ()=> {
 });
 })
 
-describe('MSTP', () => {
+describe.only('MSTP', () => {
 
   it('should correctly map the store', () => {
     const mockStore = {
-      user: {
-        name: 'Matt',
-        email: '123@gmail.com',
-        password: 'password'
-      },
-      films: [{}, {}, {}]
+      user: mockData.mockUser,
+      films: mockData.mockFilmsArray
     };
     const mapped = mapStateToProps({ user: mockStore.user, films: mockStore.films });
     expect(mapped).toEqual(mockStore);

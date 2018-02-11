@@ -3,8 +3,6 @@ import { shallow, mount } from 'enzyme';
 import { Signup, mapDispatchToProps } from './Signup';
 import * as api from '../../helper/api';
 
-//should also change snapshot with an error
-
 describe('Signup', () => {
   let renderedSignup;
   let mockLogIn = jest.fn();
@@ -74,7 +72,6 @@ describe('Signup', () => {
     api.postFetch = ( url, stringState, method ) => ({});
     api.getUserData = (url, state) => mockUser;
     await renderedSignup.instance().handleSubmit( mockEvent );
-    expect(mockLogIn).toHaveBeenCalled();
+    expect(renderedSignup.instance().props.logIn).toHaveBeenCalled();
   });
-
 });

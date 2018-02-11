@@ -15,7 +15,10 @@ describe('Login', () => {
     expect(renderedLogin).toMatchSnapshot();
   });
 
-  xit('handleChange should set state with input values', () => {})
+  xit('should call handleInputChange onChange of the inputs', () => {});
+
+  xit('handleInputChange should set state with input values', () => {});
+
 
   xit('should call handleSubmit on submit of the form', () => {});
 });

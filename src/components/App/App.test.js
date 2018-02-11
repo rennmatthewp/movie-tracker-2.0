@@ -13,13 +13,26 @@ describe('App', () => {
 
   it('should call the dispatch fn when using a fn from MDTP', () => {
     const mockDispatch = jest.fn();
-    const mapped = mapDispatchToProps(mockDispatch);   
+    const mapped = mapDispatchToProps(mockDispatch);
+    const mockFilms = [
+      { title: 'FBDO' },
+      { title: 'FBDO' },
+      { title: 'FBDO' },
+      { title: 'FBDO' },
+      { title: 'FBDO' }
+    ];
     mapped.handleFetch();
     expect(mockDispatch).toHaveBeenCalled();
   });
 
   it('should call handleFetch in CDM', async () => {
-    const mockFilms = [{title: 'FBDO'}, {title: 'FBDO'}, {title: 'FBDO'}, {title: 'FBDO'}, {title: 'FBDO'}];    
+    const mockFilms = [
+      { title: 'FBDO' },
+      { title: 'FBDO' },
+      { title: 'FBDO' },
+      { title: 'FBDO' },
+      { title: 'FBDO' }
+    ];
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,

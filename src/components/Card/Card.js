@@ -1,51 +1,60 @@
+/*eslint-disable camelcase*/
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 
 export class Card extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       clicked: false
-    }
+    };
   }
 
-  determineWarning = (e) => {
-    if(!this.props.user.name) {
-      this.setState({
+  determineWarning = event => {
+    if (!this.props.user.name) {
+      this.setState({ 
         clicked: true
-      })
+      });
     } else {
-      this.props.handleFavorite(e.target.id)
+      this.props.handleFavorite(event.target.id);
     }
-  }
+  };
 
-  toggleFavorite = (e) => {
-    if(this.state.clicked === false) {
-     this.determineWarning(e)
+  toggleFavorite = event => {
+    if (this.state.clicked === false) {
+      this.determineWarning(event);
     } else {
       this.setState({
         clicked: false
-    })
+      });
     }
-  }
-  
-  render() {
-    const warningDiv = this.state.clicked ? 
-      <div className='warning'>
-        <h3> Please login or create an account to favorite </h3>
-        <button onClick={ this.toggleFavorite }> Close </button>
-      </div> :
-      <div></div>
+  };
 
-    const { movie_id, title, release_date, overview, poster_path } = this.props.film
+  render() {
+    const warningDiv = this.state.clicked ? (
+      <div className="warning">
+        <h3> Please login or create an account to favorite </h3>
+        <button onClick={this.toggleFavorite}> Close </button>
+      </div>
+    ) : (
+      <div />
+    );
+
+    const {
+      movie_id,
+      title,
+      release_date,
+      overview,
+      poster_path
+    } = this.props.film;
 
     return (
       <article className="Card">
         <button
           className="favorite-img"
-          id={ movie_id }
+          id={movie_id}
           onClick={this.toggleFavorite}
         />
         <img
@@ -53,7 +62,7 @@ export class Card extends Component {
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           alt="movie-poster"
         />
-        { warningDiv }
+        {warningDiv}
         <div className="information">
           <h2>{title}</h2>
           <h3>{release_date}</h3>
@@ -62,13 +71,16 @@ export class Card extends Component {
       </article>
     );
   }
-};
+}
 
 Card.propTypes = {
-  poster: PropTypes.string,
-  title: PropTypes.string,
-  overview: PropTypes.string,
-  date: PropTypes.string,
-  rating: PropTypes.number,
-  id: PropTypes.number
+  film: PropTypes.shape({
+    movie_id: PropTypes.number,
+    overview: PropTypes.string,
+    release_date: PropTypes.string,
+    poster_path: PropTypes.string,
+    title: PropTypes.string
+  }),
+  user: PropTypes.object,
+  handleFavorite: PropTypes.func
 };

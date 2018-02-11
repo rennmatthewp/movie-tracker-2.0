@@ -1,18 +1,12 @@
+/*eslint-disable camelcase*/
 import React from 'react';
 import { shallow } from 'enzyme';
+import * as api from '../../helper/api';
 import {
   CardContainer,
   mapStateToProps,
   mapDispatchToProps
 } from './CardContainer';
-
-/*eslint-disable*/
-//test MDTP
-//when handlefav called when user does not have film in favorites, calls handleAddFavorite
-//when handlefav called when user does have film in favorites, calls handleRemoveFavorite
-//handleAddFav calls addFav and sendFav
-//handleRemoveFav calls removeFav and deleteFav
-/*eslint-enable*/
 
 describe('CardContainer', () => {
   it('should match the snapshot', () => {
@@ -46,16 +40,92 @@ describe('CardContainer', () => {
   });
 
   describe('handleFavorite', () => {
-    xit('should call handleAddFav if film is not in user favorites', () => {
-      const mockFavorites = [{movie_id: 0}, {id: 1}, {id: 2}];
+    it('should call handleAddFav with the correct args if film is not in user favorites', () => {
+      const mockFavorites = [{ movie_id: 1 }, { movie_id: 2 }];
       const mockUser = { favorites: mockFavorites };
-      const mockAddFav = jest.fn()
-      const mockFilms = [{}, {}, {}];
-      
-      const renderedCardContainer = shallow(<CardContainer user={mockUser} films={mockFilms} />);
+      const mockAddFav = jest.fn();
+      const mockFilms = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
+
+      const renderedCardContainer = shallow(
+        <CardContainer
+          user={mockUser}
+          films={mockFilms}
+          addFavorite={mockAddFav}
+        />
+      );
+
+      renderedCardContainer.instance().handleAddFavorite = jest.fn();
 
       renderedCardContainer.instance().handleFavorite(0);
-      expect(mockAddFav).toHaveBeenCalled();
+      expect(
+        renderedCardContainer.instance().handleAddFavorite
+      ).toHaveBeenCalledWith(0);
+    });
+
+    it('should call handleRemoveFav with the correct args if film is in user favorites', () => {
+      const mockFavorites = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
+      const mockUser = { favorites: mockFavorites };
+      const mockRemoveFav = jest.fn();
+      const mockFilms = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
+
+      const renderedCardContainer = shallow(
+        <CardContainer
+          user={mockUser}
+          films={mockFilms}
+          removeFavorite={mockRemoveFav}
+        />
+      );
+
+      renderedCardContainer.instance().handleRemoveFavorite = jest.fn();
+
+      renderedCardContainer.instance().handleFavorite(0);
+      expect(
+        renderedCardContainer.instance().handleRemoveFavorite
+      ).toHaveBeenCalledWith(mockFilms[0]);
+    });
+  });
+
+  describe('handleAddFavorite', () => {
+    it('should call addFavorite and sendFavorite with correct args', () => {
+      const mockFavorites = [{ movie_id: 1 }, { movie_id: 2 }];
+      const mockUser = { favorites: mockFavorites };
+      const mockFilms = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
+      const mockAddFav = jest.fn();
+      api.sendFavorite = jest.fn();
+
+      const renderedCardContainer = shallow(
+        <CardContainer
+          user={mockUser}
+          films={mockFilms}
+          addFavorite={mockAddFav}
+        />
+      );
+
+      renderedCardContainer.instance().handleAddFavorite(0);
+      expect(mockAddFav).toHaveBeenCalledWith(mockFilms[0]);
+      expect(api.sendFavorite).toHaveBeenCalledWith(mockUser, mockFilms[0]);
+    });
+  });
+
+  describe('handleRemoveFavorite', () => {
+    it('should call removeFavorite and deleteFavorite with the correct args', () => {
+      const mockFavorites = [{ movie_id: 1 }, { movie_id: 2 }];
+      const mockUser = { favorites: mockFavorites };
+      const mockRemoveFav = jest.fn();
+      const mockFilms = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
+      api.deleteFavorite = jest.fn();
+
+      const renderedCardContainer = shallow(
+        <CardContainer
+          user={mockUser}
+          films={mockFilms}
+          removeFavorite={mockRemoveFav}
+        />
+      );
+
+      renderedCardContainer.instance().handleRemoveFavorite(mockFilms[1]);
+      expect(mockRemoveFav).toHaveBeenCalledWith(mockFilms[1]);
+      expect(api.deleteFavorite).toHaveBeenCalledWith(mockUser, mockFilms[1]);
     });
   });
 });

@@ -14,7 +14,7 @@ export class CardContainer extends Component {
     });
 
     if (foundInUser) {
-      this.handleRemoveFavorite(foundInUser)
+      this.handleRemoveFavorite(foundInUser);
     } else {
       this.handleAddFavorite(filmId);
     }

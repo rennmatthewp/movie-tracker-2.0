@@ -48,7 +48,6 @@ describe('Signup', () => {
     expect(renderedSignup.state()).toEqual(expectedState);
   });
 
-
   it('should call handleSubmit on submit of the form', () => {
     renderedSignup = shallow(<Signup logIn={mockLogIn} />);
     window.fetch = jest.fn().mockImplementation(() => {

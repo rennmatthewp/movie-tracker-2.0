@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Login } from './Login';
+import * as api from '../../helper/api';
 
 //in addition to the two tests written but not finished:
 //test MDTP
@@ -15,10 +16,45 @@ describe('Login', () => {
     expect(renderedLogin).toMatchSnapshot();
   });
 
-  xit('should call handleInputChange onChange of the inputs', () => {});
+  it('should set state with input values on a change event', () => {
+    const renderedLogin = shallow(<Login />)
 
-  xit('handleInputChange should set state with input values', () => {});
+    const e1 = { 
+      target: {
+        name: 'email',
+        value: 'sickemail'
+      }
+    }
+    const expectedState = {
+      email: 'sickemail',
+      password: ''
+    }
 
+    renderedLogin.instance().handleChange(e1)
+    renderedLogin.update();
 
-  xit('should call handleSubmit on submit of the form', () => {});
+    expect(renderedLogin.state()).toEqual(expectedState)
+  });
+
+  it('should call handleSubmit on submit of the form', async () => {
+    const mockLogin = jest.fn();
+    const renderedLogin = shallow(<Login logIn={mockLogin}/>)
+    const mockUser = {name: 'Jordan', email: 'email', password: 'password'}
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () =>
+          Promise.resolve({
+            results: mockUser
+          })
+      });
+    });
+
+    api.getUserData = (url, state) => mockUser;
+    const mockEvent = { preventDefault: () => {} }
+    await renderedLogin.instance().handleSubmit(mockEvent);
+    expect(api.getUserData()).toEqual({"email": "email", "name": "Jordan", "password": "password"});
+    expect(mockLogin).toHaveBeenCalled();
+  });
 });

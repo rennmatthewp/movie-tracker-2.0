@@ -14,13 +14,7 @@ describe('App', () => {
   it('should call the dispatch fn when using a fn from MDTP', () => {
     const mockDispatch = jest.fn();
     const mapped = mapDispatchToProps(mockDispatch);
-    const mockFilms = [
-      { title: 'FBDO' },
-      { title: 'FBDO' },
-      { title: 'FBDO' },
-      { title: 'FBDO' },
-      { title: 'FBDO' }
-    ];
+
     mapped.handleFetch();
     expect(mockDispatch).toHaveBeenCalled();
   });

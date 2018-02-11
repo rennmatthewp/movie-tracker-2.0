@@ -1,10 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Signup, mapDispatchToProps } from './Signup';
+import * as api from '../../helper/api';
 
-//check that handle submit has been called on form submit
-//should call logIn when handleSubmit called
-//should reset state with an error when fetch errors
 //should also change snapshot with an error
 
 describe('Signup', () => {
@@ -48,23 +46,35 @@ describe('Signup', () => {
     expect(renderedSignup.state()).toEqual(expectedState);
   });
 
-  it('should call handleSubmit on submit of the form', () => {
+  it('should setState with an error when the window fetch returns an error', async() => {
     renderedSignup = shallow(<Signup logIn={mockLogIn} />);
-    window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve({
-        ok: true,
-        status: 200,
-        json: () =>
-          Promise.resolve({
-            results: {}
-          })
-      });
-    });
+    const mockEvent = { preventDefault: () => {} }
 
-    renderedSignup.find('form').simulate('submit', {
-      preventDefault: () => {}
-    });
-
+    window.fetch = jest.fn().mockImplementation(() =>  Promise.resolve({
+      status: 500
+      })
+    )
+    await renderedSignup.instance().handleSubmit( mockEvent );
     expect(window.fetch).toHaveBeenCalled();
+    expect(renderedSignup.state()).toEqual({
+        name: '',
+        error: true,
+        password: '',
+        email: ''
+      })
+  })
+
+  it('should match the snapshot after an error in the fetch', () => {
+    expect(renderedSignup).toMatchSnapshot();
+  })
+
+  it('should call handleSubmit on submit of the form', async () => {
+    const mockEvent = { preventDefault: () => {} }
+    const mockUser = {name: 'Jordan', email: 'email', password: 'password'}
+    api.postFetch = ( url, stringState, method ) => ({});
+    api.getUserData = (url, state) => mockUser;
+    await renderedSignup.instance().handleSubmit( mockEvent );
+    expect(mockLogIn).toHaveBeenCalled();
   });
+
 });

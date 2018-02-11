@@ -19,6 +19,7 @@ h3 {
 
 .warning {
   position: absolute;
+  top: 0;
   background-color: rgba(0, 0, 0, .8);
   color: white;
   height: 100%;
@@ -70,6 +71,7 @@ h3 {
 
 @media screen and (min-width: 545px) {
   .Card {
+    position: relative;
     display: flex;
     width: 490px;
     height: 350px;

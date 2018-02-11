@@ -17,7 +17,5 @@ import * as api from './api';
 //postFetch calls post window fetch
 
 describe('api helper', () => {
-  it('should fetch movie data', () => {
-    
-  })
-})
+  it('should fetch movie data', () => {});
+});

@@ -60,7 +60,7 @@ export class Signup extends Component {
         />
         <input
           onChange={this.handleChange}
-          type="text"
+          type="email"
           name="email"
           placeholder="Email"
           value={email}

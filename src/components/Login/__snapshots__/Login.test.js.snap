@@ -22,7 +22,7 @@ ShallowWrapper {
           name="email"
           onChange={[Function]}
           placeholder="email"
-          type="text"
+          type="email"
           value=""
 />,
         <input
@@ -50,7 +50,7 @@ ShallowWrapper {
           "name": "email",
           "onChange": [Function],
           "placeholder": "email",
-          "type": "text",
+          "type": "email",
           "value": "",
         },
         "ref": null,
@@ -98,7 +98,7 @@ ShallowWrapper {
             name="email"
             onChange={[Function]}
             placeholder="email"
-            type="text"
+            type="email"
             value=""
 />,
           <input
@@ -126,7 +126,7 @@ ShallowWrapper {
             "name": "email",
             "onChange": [Function],
             "placeholder": "email",
-            "type": "text",
+            "type": "email",
             "value": "",
           },
           "ref": null,

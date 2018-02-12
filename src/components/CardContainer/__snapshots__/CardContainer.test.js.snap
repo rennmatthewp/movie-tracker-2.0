@@ -7,9 +7,15 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <CardContainer
     films={
         Array [
-            Object {},
-            Object {},
-            Object {},
+            Object {
+              "backdrop": "url",
+              "movie_id": 20,
+              "overview": "Best documentary ever",
+              "poster_path": "url",
+              "release_date": "March 5, 2006",
+              "title": "Planet Earth",
+              "vote_average": "1000%",
+            },
           ]
     }
 />,
@@ -27,17 +33,17 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Card
-          film={Object {}}
-          handleFavorite={[Function]}
-          user={undefined}
-/>,
-        <Card
-          film={Object {}}
-          handleFavorite={[Function]}
-          user={undefined}
-/>,
-        <Card
-          film={Object {}}
+          film={
+                    Object {
+                              "backdrop": "url",
+                              "movie_id": 20,
+                              "overview": "Best documentary ever",
+                              "poster_path": "url",
+                              "release_date": "March 5, 2006",
+                              "title": "Planet Earth",
+                              "vote_average": "1000%",
+                            }
+          }
           handleFavorite={[Function]}
           user={undefined}
 />,
@@ -51,33 +57,15 @@ ShallowWrapper {
         "key": "0",
         "nodeType": "class",
         "props": Object {
-          "film": Object {},
-          "handleFavorite": [Function],
-          "user": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": "1",
-        "nodeType": "class",
-        "props": Object {
-          "film": Object {},
-          "handleFavorite": [Function],
-          "user": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": "2",
-        "nodeType": "class",
-        "props": Object {
-          "film": Object {},
+          "film": Object {
+            "backdrop": "url",
+            "movie_id": 20,
+            "overview": "Best documentary ever",
+            "poster_path": "url",
+            "release_date": "March 5, 2006",
+            "title": "Planet Earth",
+            "vote_average": "1000%",
+          },
           "handleFavorite": [Function],
           "user": undefined,
         },
@@ -96,17 +84,17 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Card
-            film={Object {}}
-            handleFavorite={[Function]}
-            user={undefined}
-/>,
-          <Card
-            film={Object {}}
-            handleFavorite={[Function]}
-            user={undefined}
-/>,
-          <Card
-            film={Object {}}
+            film={
+                        Object {
+                                    "backdrop": "url",
+                                    "movie_id": 20,
+                                    "overview": "Best documentary ever",
+                                    "poster_path": "url",
+                                    "release_date": "March 5, 2006",
+                                    "title": "Planet Earth",
+                                    "vote_average": "1000%",
+                                  }
+            }
             handleFavorite={[Function]}
             user={undefined}
 />,
@@ -120,33 +108,15 @@ ShallowWrapper {
           "key": "0",
           "nodeType": "class",
           "props": Object {
-            "film": Object {},
-            "handleFavorite": [Function],
-            "user": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "1",
-          "nodeType": "class",
-          "props": Object {
-            "film": Object {},
-            "handleFavorite": [Function],
-            "user": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "2",
-          "nodeType": "class",
-          "props": Object {
-            "film": Object {},
+            "film": Object {
+              "backdrop": "url",
+              "movie_id": 20,
+              "overview": "Best documentary ever",
+              "poster_path": "url",
+              "release_date": "March 5, 2006",
+              "title": "Planet Earth",
+              "vote_average": "1000%",
+            },
             "handleFavorite": [Function],
             "user": undefined,
           },

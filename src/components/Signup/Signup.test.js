@@ -1,7 +1,9 @@
+/* eslint-disable */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Signup, mapDispatchToProps } from './Signup';
 import * as api from '../../helper/api';
+import { mockData } from '../../mockData';
 
 describe('Signup', () => {
   let renderedSignup;
@@ -15,6 +17,10 @@ describe('Signup', () => {
     expect(renderedSignup).toMatchSnapshot();
   });
 
+  it('should have a default state of empty strings for name, email and password and an error key equal to false', () => {
+    expect(renderedSignup.state()).toEqual(mockData.mockSignupDefaultState);
+  })
+
   it('should call the dispach fn when using a fn from mdtp', () => {
     const mockDispatch = jest.fn();
     const mapped = mapDispatchToProps(mockDispatch);
@@ -24,42 +30,24 @@ describe('Signup', () => {
    
   it('handleInputChange should set state with input values', () => {
     renderedSignup = mount(<Signup logIn={mockLogIn} />);
-    let mockEvent = {
-      target: {
-        name: 'name',
-        value: 'ILOVEPLANTS'
-      }
-    };
-    let expectedState = {
-      name: 'ILOVEPLANTS',
-      password: '',
-      email: '',
-      error: false
-    };
 
     renderedSignup
       .find('input')
       .first()
-      .simulate('change', mockEvent);
-    expect(renderedSignup.state()).toEqual(expectedState);
+      .simulate('change', mockData.mockEvent);
+    expect(renderedSignup.state()).toEqual(mockData.mockSignupExpectedState);
   });
 
   it('should setState with an error when the window fetch returns an error', async() => {
     renderedSignup = shallow(<Signup logIn={mockLogIn} />);
-    const mockEvent = { preventDefault: () => {} }
 
     window.fetch = jest.fn().mockImplementation(() =>  Promise.resolve({
       status: 500
       })
     )
-    await renderedSignup.instance().handleSubmit( mockEvent );
+    await renderedSignup.instance().handleSubmit( mockData.mockEvent );
     expect(window.fetch).toHaveBeenCalled();
-    expect(renderedSignup.state()).toEqual({
-        name: '',
-        error: true,
-        password: '',
-        email: ''
-      })
+    expect(renderedSignup.state()).toEqual({...mockData.mockSignupDefaultState, error: true})
   })
 
   it('should match the snapshot after an error in the fetch', () => {
@@ -67,11 +55,9 @@ describe('Signup', () => {
   })
 
   it('should call handleSubmit on submit of the form', async () => {
-    const mockEvent = { preventDefault: () => {} }
-    const mockUser = {name: 'Jordan', email: 'email', password: 'password'}
     api.postFetch = ( url, stringState, method ) => ({});
-    api.getUserData = (url, state) => mockUser;
-    await renderedSignup.instance().handleSubmit( mockEvent );
+    api.getUserData = (url, state) => mockData.mockUser;
+    await renderedSignup.instance().handleSubmit( mockData.mockEvent );
     expect(renderedSignup.instance().props.logIn).toHaveBeenCalled();
   });
 });

@@ -1,56 +1,44 @@
-/*eslint-disable camelcase*/
+/*eslint-disable*/
 import React from 'react';
 import { shallow } from 'enzyme';
+import { CardContainer, mapStateToProps, mapDispatchToProps } from './CardContainer';
 import * as api from '../../helper/api';
-import {
-  CardContainer,
-  mapStateToProps,
-  mapDispatchToProps
-} from './CardContainer';
+import { mockData } from '../../mockData';
 
 describe('CardContainer', () => {
   it('should match the snapshot', () => {
-    const mockFilms = [{}, {}, {}];
-    const renderedCardContainer = shallow(<CardContainer films={mockFilms} />);
+    const renderedCardContainer = shallow(<CardContainer films={mockData.mockFilmsArray} />);
 
     expect(renderedCardContainer).toMatchSnapshot();
   });
 
   it('should correctly map the store', () => {
-    const mockStoreUser = {
-      name: 'Matt',
-      email: '123@gmail.com',
-      password: 'password'
-    };
-    const mapped = mapStateToProps({ user: mockStoreUser });
+    const mapped = mapStateToProps({ user: mockData.mockUser });
 
-    expect(mapped.user).toEqual(mockStoreUser);
+    expect(mapped.user).toEqual(mockData.mockUser);
   });
 
   it('should call the dispatch fn when using a fn from MDTP', () => {
     const mockDispatch = jest.fn();
     const mapped = mapDispatchToProps(mockDispatch);
-    const mockFilm = { title: 'The Big Lebowski' };
 
-    mapped.addFavorite(mockFilm);
+    mapped.addFavorite(mockData.mockFilmsArray[0]);
     expect(mockDispatch).toHaveBeenCalled();
 
-    mapped.removeFavorite(mockFilm);
+    mapped.removeFavorite(mockData.mockFilmsArray[0]);
     expect(mockDispatch).toHaveBeenCalled();
   });
 
   describe('handleFavorite', () => {
     it('should call handleAddFav with the correct args if film is not in user favorites', () => {
-      const mockFavorites = [{ movie_id: 1 }, { movie_id: 2 }];
-      const mockUser = { favorites: mockFavorites };
+      const mockUser = { favorites: mockData.mockFavoritesIdOnly };
       const mockAddFav = jest.fn();
-      const mockFilms = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
 
       const renderedCardContainer = shallow(
         <CardContainer
-          user={mockUser}
-          films={mockFilms}
-          addFavorite={mockAddFav}
+          user={ mockUser }
+          films={ mockData.mockFilmsIdOnly }
+          addFavorite={ mockAddFav }
         />
       );
 
@@ -63,16 +51,14 @@ describe('CardContainer', () => {
     });
 
     it('should call handleRemoveFav with the correct args if film is in user favorites', () => {
-      const mockFavorites = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
-      const mockUser = { favorites: mockFavorites };
+      const mockUser = { favorites: mockData.mockFilmsIdOnly };
       const mockRemoveFav = jest.fn();
-      const mockFilms = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
 
       const renderedCardContainer = shallow(
         <CardContainer
-          user={mockUser}
-          films={mockFilms}
-          removeFavorite={mockRemoveFav}
+          user={ mockUser }
+          films={ mockData.mockFilmsIdOnly }
+          removeFavorite={ mockRemoveFav }
         />
       );
 
@@ -81,51 +67,47 @@ describe('CardContainer', () => {
       renderedCardContainer.instance().handleFavorite(0);
       expect(
         renderedCardContainer.instance().handleRemoveFavorite
-      ).toHaveBeenCalledWith(mockFilms[0]);
+      ).toHaveBeenCalledWith(mockData.mockFilmsIdOnly[0]);
     });
   });
 
   describe('handleAddFavorite', () => {
     it('should call addFavorite and sendFavorite with correct args', () => {
-      const mockFavorites = [{ movie_id: 1 }, { movie_id: 2 }];
-      const mockUser = { favorites: mockFavorites };
-      const mockFilms = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
+      const mockUser = { favorites: mockData.mockFavoritesIdOnly };
       const mockAddFav = jest.fn();
       api.sendFavorite = jest.fn();
 
       const renderedCardContainer = shallow(
         <CardContainer
           user={mockUser}
-          films={mockFilms}
+          films={mockData.mockFilmsIdOnly}
           addFavorite={mockAddFav}
         />
       );
 
       renderedCardContainer.instance().handleAddFavorite(0);
-      expect(mockAddFav).toHaveBeenCalledWith(mockFilms[0]);
-      expect(api.sendFavorite).toHaveBeenCalledWith(mockUser, mockFilms[0]);
+      expect(mockAddFav).toHaveBeenCalledWith(mockData.mockFilmsIdOnly[0]);
+      expect(api.sendFavorite).toHaveBeenCalledWith(mockUser, mockData.mockFilmsIdOnly[0]);
     });
   });
 
   describe('handleRemoveFavorite', () => {
     it('should call removeFavorite and deleteFavorite with the correct args', () => {
-      const mockFavorites = [{ movie_id: 1 }, { movie_id: 2 }];
-      const mockUser = { favorites: mockFavorites };
+      const mockUser = { favorites: mockData.mockFavoritesIdOnly };
       const mockRemoveFav = jest.fn();
-      const mockFilms = [{ movie_id: 0 }, { movie_id: 1 }, { movie_id: 2 }];
       api.deleteFavorite = jest.fn();
 
       const renderedCardContainer = shallow(
         <CardContainer
           user={mockUser}
-          films={mockFilms}
+          films={mockData.mockFilmsIdOnly}
           removeFavorite={mockRemoveFav}
         />
       );
 
-      renderedCardContainer.instance().handleRemoveFavorite(mockFilms[1]);
-      expect(mockRemoveFav).toHaveBeenCalledWith(mockFilms[1]);
-      expect(api.deleteFavorite).toHaveBeenCalledWith(mockUser, mockFilms[1]);
+      renderedCardContainer.instance().handleRemoveFavorite(mockData.mockFilmsIdOnly[1]);
+      expect(mockRemoveFav).toHaveBeenCalledWith(mockData.mockFilmsIdOnly[1]);
+      expect(api.deleteFavorite).toHaveBeenCalledWith(mockUser, mockData.mockFilmsIdOnly[1]);
     });
   });
 });

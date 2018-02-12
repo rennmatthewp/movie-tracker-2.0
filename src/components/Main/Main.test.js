@@ -15,7 +15,7 @@ describe('Main', () => {
   });
 });
 
-describe('Router', () => {
+xdescribe('Router', () => {
   const main = (
     <Main films={mockData.mockFilmsArray} user={mockData.mockUser} />
   );

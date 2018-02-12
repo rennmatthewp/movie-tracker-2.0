@@ -1,3 +1,4 @@
+/*eslint-disable no-case-declarations*/
 export const userReducer = (state = {}, action) => {
   switch (action.type) {
     case 'LOG_IN':

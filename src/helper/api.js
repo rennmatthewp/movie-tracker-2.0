@@ -2,17 +2,16 @@
 export const fetchApi = async url => {
   try {
     const initialFetch = await fetch(url);
-  if(initialFetch.status <= 200) {
-    const resolvedPromise = await initialFetch.json();
-    return resolvedPromise;
-  } 
-  else if (initialFetch.status > 200) {
+    if (initialFetch.status <= 200) {
+      const resolvedPromise = await initialFetch.json();
+      return resolvedPromise;
+    } else if (initialFetch.status > 200) {
       throw new Error('Bad response stats');
     }
   } catch (error) {
     return error;
   }
-}
+};
 
 export const getFilms = async url => {
   const { results } = await fetchApi(url);

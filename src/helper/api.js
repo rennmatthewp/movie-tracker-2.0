@@ -50,13 +50,13 @@ export const getUserData = async (url, state) => {
 };
 
 export const sendToStorage = user => {
-  localStorage.setItem('user', JSON.stringify(user) )
-}
+  localStorage.setItem('user', JSON.stringify(user));
+};
 
 export const getFromStorage = () => {
   const user = JSON.parse(localStorage.getItem('user'));
-  return user
-}
+  return user;
+};
 
 export const sendFavorite = async (user, film) => {
   const { id } = user;

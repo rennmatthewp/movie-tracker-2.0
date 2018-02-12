@@ -1,4 +1,6 @@
 /*eslint-disable*/
+import React, { Component } from 'react';
+
 export const mockData = {
   mockUser: {
     name: 'TinkerBell',
@@ -101,5 +103,28 @@ export const mockData = {
     release_date: '',
     vote_average: '',
     overview: ''
+  }
+};
+
+export default class LocalStorageMock extends Component {
+  constructor() {
+    super();
+    this.store = {};
+  }
+
+  clear() {
+    this.store = {};
+  }
+
+  getItem(key) {
+    return this.store[key] || null;
+  }
+
+  setItem(key, value) {
+    this.store[key] = value.toString();
+  }
+
+  removeItem(key) {
+    delete this.store[key];
   }
 };

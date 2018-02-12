@@ -4,10 +4,13 @@ import { shallow } from 'enzyme';
 import { Login, mapDispatchToProps } from './Login';
 import * as api from '../../helper/api';
 import { mockData } from '../../mockData';
+import LocalStorageMock from '../../mockData';
 
 describe('Login', () => {
+  window.localStorage = new LocalStorageMock;
+  
   it('should match the snapshot', () => {
-    const renderedLogin = shallow(<Login />);
+  const renderedLogin = shallow(<Login />);
 
     expect(renderedLogin).toMatchSnapshot();
   });

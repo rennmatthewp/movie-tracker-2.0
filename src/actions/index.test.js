@@ -39,7 +39,7 @@ describe('all actions', () => {
     };
 
     expect(actions.addFavorite(film)).toEqual(expected);
-  })
+  });
 
   it('should return a type of REMOVE_FAVORITE', () => {
     const film = {};
@@ -49,5 +49,5 @@ describe('all actions', () => {
     };
 
     expect(actions.removeFavorite(film)).toEqual(expected);
-  })
+  });
 });

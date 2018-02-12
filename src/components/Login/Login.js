@@ -26,7 +26,11 @@ export class Login extends Component {
       'http://localhost:3000/api/users',
       this.state
     );
-    user ? this.props.logIn(user) : alert('username or password was not correct');
+    if (user) {
+      this.props.logIn(user);
+    } else {
+      alert('username or password was not correct');
+    }
   };
 
   render() {

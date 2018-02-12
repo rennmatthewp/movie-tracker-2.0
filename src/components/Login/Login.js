@@ -40,7 +40,7 @@ export class Login extends Component {
       <form onSubmit={this.handleSubmit}>
         <input
           onChange={this.handleChange}
-          type="text"
+          type="email"
           name="email"
           placeholder="email"
           value={email}

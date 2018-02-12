@@ -31,14 +31,22 @@ export const cleanFilms = films => {
 };
 
 export const getUserData = async (url, state) => {
-  const { data } = await fetchApi(url);
-  const { email, password } = state;
-  const user = data.find(user => {
-    return user.email === email && user.password === password;
-  });
-  const currentFavorites = await fetchApi(`${url}/${user.id}/favorites/`);
-  user.favorites = [...currentFavorites.data];
-  return user;
+  try {
+    const { data } = await fetchApi(url);
+    const { email, password } = state;
+    const user = data.find(user => {
+      return user.email === email && user.password === password;
+    });
+    try {
+      const currentFavorites = await fetchApi(`${url}/${user.id}/favorites/`);
+      user.favorites = [...currentFavorites.data];
+      return user;
+    } catch (error) {
+      new Error('error in getUserData', error);
+    }
+  } catch (error) {
+    throw new Error('error in getUserData:', error);
+  }
 };
 
 export const sendFavorite = async (user, film) => {

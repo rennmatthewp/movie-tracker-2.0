@@ -30,7 +30,8 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  handleFetch: PropTypes.func
+  handleFetch: PropTypes.func,
+  logIn: PropTypes.func
 };
 
 export const mapDispatchToProps = dispatch => ({

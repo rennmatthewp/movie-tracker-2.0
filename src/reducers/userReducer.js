@@ -4,7 +4,7 @@ export const userReducer = (state = {}, action) => {
     case 'LOG_IN':
       return action.user;
     case 'SIGN_OUT':
-      localStorage.removeItem('user')
+      localStorage.removeItem('user');
       return {};
     case 'ADD_FAVORITE':
       return { ...state, favorites: [...state.favorites, action.film] };

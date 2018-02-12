@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logIn } from '../../actions';
-import { getUserData } from '../../helper/api';
+import { getUserData, sendToStorage } from '../../helper/api';
 import PropTypes from 'prop-types';
 import './Login.css';
 
@@ -28,6 +28,7 @@ export class Login extends Component {
     );
     if (user) {
       this.props.logIn(user);
+      sendToStorage(user);
     } else {
       alert('username or password was not correct');
     }

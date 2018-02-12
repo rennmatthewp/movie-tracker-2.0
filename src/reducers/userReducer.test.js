@@ -1,7 +1,10 @@
 /*eslint-disable camelcase, max-len*/
 import { userReducer } from './userReducer';
+import LocalStorageMock from '../mockData';
 
 describe('userReducer', () => {
+  window.localStorage = new LocalStorageMock;
+
   it('should default to returning an empty object as state', () => {
     const expected = {};
 

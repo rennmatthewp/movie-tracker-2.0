@@ -4,8 +4,11 @@ import { App, mapDispatchToProps } from './App';
 import { shallow } from 'enzyme';
 import * as api from '../../helper/api';
 import { mockData } from '../../mockData';
+import LocalStorageMock from '../../mockData';
 
 describe('App', () => {
+  window.localStorage = new LocalStorageMock;
+
   it('should match the snapshot', () => {
     const renderedApp = shallow(<App />, { disableLifecycleMethods: true });
 
